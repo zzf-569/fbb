@@ -1,0 +1,24 @@
+{
+  "originHash" : "43d0b96fb00223ab1c74fa245a59a1f56f1a62c22ca7c4bc48ecc214294f8599",
+  "pins" : [
+    {
+      "identity" : "rjswiftmacros",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rezojoglidze/RJSwiftMacros",
+      "state" : {
+        "revision" : "d87e884d71848ba20326dfea3a83716c6df1788e",
+        "version" : "0.4.6"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

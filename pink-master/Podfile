@@ -1,0 +1,108 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '15.0'
+
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+target 'pink' do
+
+   pod 'SwiftLint'
+
+  pod 'R.swift'
+
+  pod 'Alamofire'
+  
+ 
+ pod 'ZLPhotoBrowser', '~> 4.5.8'
+ 
+ pod 'SVProgressHUD'
+
+
+ pod 'JXSegmentedView'
+
+ pod 'JXPagingView/Paging'
+ 
+ 
+  pod 'SmartCodable'
+  
+
+  pod 'Kingfisher'
+  
+ 
+  pod 'SnapKit'
+  
+  
+  pod 'TencentCloudHuiyanSDKFace_framework', :path => './TencentCloudHuiyanSDKFace_framework'
+
+  
+  pod 'QGVAPlayer'
+  
+  
+  pod 'libpag'
+  
+  
+  pod 'APNGKit'
+  
+  pod 'FLAnimatedImage'
+  
+  
+  pod 'MJRefresh'
+  
+  
+
+  
+  pod 'AttributedString'
+  
+  
+  pod 'Permissions'
+  
+  pod "Qiniu", '~> 8.8.1'
+
+  pod 'ZegoExpressAudio'
+
+  #
+  use_modular_headers!
+  # 集成基础库（必选）
+  pod 'TUICore', :path => "./TUIKit/TUICore"
+  pod 'TIMCommon', :path => "./TUIKit/TIMCommon"
+  # 集成聊天功能
+  pod 'TUIChat', :path => "./TUIKit/TUIChat"
+  # 远程仓库
+  #  pod 'TUIChat/UI_Classic'
+
+  pod 'BRPickerView/Default'
+  
+  pod 'SDCycleScrollView'
+  
+  pod 'Hero'
+  
+  pod 'SwiftMessages'
+  
+  pod 'DanmakuKit', '~> 1.5.0'
+
+
+  
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+      config.build_settings['SWIFT_VERSION'] = '5.9'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+
+    end
+  end
+installer.pods_project.targets.each do |target|
+
+          target.build_configurations.each do |configuration|
+            configuration.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+          end
+    end
+  end
+

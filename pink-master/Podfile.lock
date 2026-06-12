@@ -1,0 +1,190 @@
+PODS:
+  - Alamofire (5.11.1)
+  - APNGKit (2.3.0):
+    - Delegate (~> 1.3)
+  - AttributedString (3.4.2):
+    - AttributedString/Privacy (= 3.4.2)
+  - AttributedString/Privacy (3.4.2)
+  - BRPickerView/Core (2.9.9)
+  - BRPickerView/DatePicker (2.9.9):
+    - BRPickerView/Core
+  - BRPickerView/Default (2.9.9):
+    - BRPickerView/DatePicker
+    - BRPickerView/TextPicker
+  - BRPickerView/TextPicker (2.9.9):
+    - BRPickerView/Core
+  - DanmakuKit (1.5.2):
+    - DanmakuKit/Core (= 1.5.2)
+  - DanmakuKit/Core (1.5.2)
+  - Delegate (1.3.0)
+  - FLAnimatedImage (1.0.17)
+  - HappyDNS (1.0.4)
+  - Hero (1.6.4)
+  - JXPagingView/Paging (2.1.3)
+  - JXSegmentedView (1.4.1)
+  - Kingfisher (8.8.0)
+  - libpag (4.5.36)
+  - Masonry (1.1.0)
+  - MJRefresh (3.7.9)
+  - Permissions (0.0.6):
+    - Permissions/Core (= 0.0.6)
+  - Permissions/Core (0.0.6)
+  - QGVAPlayer (1.0.19)
+  - Qiniu (8.8.1):
+    - HappyDNS (~> 1.0.4)
+  - R.swift (7.8.0)
+  - ReactiveObjC (3.1.1)
+  - SDCycleScrollView (1.82):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.21.7):
+    - SDWebImage/Core (= 5.21.7)
+  - SDWebImage/Core (5.21.7)
+  - SmartCodable (6.0.1):
+    - SmartCodable/Core (= 6.0.1)
+  - SmartCodable/Core (6.0.1)
+  - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+  - SwiftLint (0.63.2)
+  - SwiftMessages (10.0.2):
+    - SwiftMessages/App (= 10.0.2)
+  - SwiftMessages/App (10.0.2)
+  - TencentCloudHuiyanSDKFace_framework (8.4.0)
+  - TIMCommon (8.1.6103):
+    - Masonry
+    - ReactiveObjC
+    - SDWebImage
+    - TUICore
+  - TUIChat (1.0.0):
+    - ReactiveObjC
+    - SDWebImage
+    - TIMCommon
+    - TUICore
+  - TUICore (8.1.6103):
+    - SDWebImage
+    - TUICore/ImSDK_Plus (= 8.1.6103)
+  - TUICore/Base (8.1.6103):
+    - SDWebImage
+  - TUICore/ImSDK_Plus (8.1.6103):
+    - SDWebImage
+    - TUICore/Base
+    - TXIMSDK_Plus_iOS
+  - TXIMSDK_Plus_iOS (8.9.7511)
+  - ZegoExpressAudio (3.23.1)
+  - ZLPhotoBrowser (4.5.8):
+    - ZLPhotoBrowser/Core (= 4.5.8)
+  - ZLPhotoBrowser/Core (4.5.8)
+
+DEPENDENCIES:
+  - Alamofire
+  - APNGKit
+  - AttributedString
+  - BRPickerView/Default
+  - DanmakuKit (~> 1.5.0)
+  - FLAnimatedImage
+  - Hero
+  - JXPagingView/Paging
+  - JXSegmentedView
+  - Kingfisher
+  - libpag
+  - MJRefresh
+  - Permissions
+  - QGVAPlayer
+  - Qiniu (~> 8.8.1)
+  - R.swift
+  - SDCycleScrollView
+  - SmartCodable
+  - SnapKit
+  - SVProgressHUD
+  - SwiftLint
+  - SwiftMessages
+  - TencentCloudHuiyanSDKFace_framework (from `./TencentCloudHuiyanSDKFace_framework`)
+  - TIMCommon (from `./TUIKit/TIMCommon`)
+  - TUIChat (from `./TUIKit/TUIChat`)
+  - TUICore (from `./TUIKit/TUICore`)
+  - ZegoExpressAudio
+  - ZLPhotoBrowser (~> 4.5.8)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - APNGKit
+    - AttributedString
+    - BRPickerView
+    - DanmakuKit
+    - Delegate
+    - FLAnimatedImage
+    - HappyDNS
+    - Hero
+    - JXPagingView
+    - JXSegmentedView
+    - Kingfisher
+    - libpag
+    - Masonry
+    - MJRefresh
+    - Permissions
+    - QGVAPlayer
+    - Qiniu
+    - R.swift
+    - ReactiveObjC
+    - SDCycleScrollView
+    - SDWebImage
+    - SmartCodable
+    - SnapKit
+    - SVProgressHUD
+    - SwiftLint
+    - SwiftMessages
+    - TXIMSDK_Plus_iOS
+    - ZegoExpressAudio
+    - ZLPhotoBrowser
+
+EXTERNAL SOURCES:
+  TencentCloudHuiyanSDKFace_framework:
+    :path: "./TencentCloudHuiyanSDKFace_framework"
+  TIMCommon:
+    :path: "./TUIKit/TIMCommon"
+  TUIChat:
+    :path: "./TUIKit/TUIChat"
+  TUICore:
+    :path: "./TUIKit/TUICore"
+
+SPEC CHECKSUMS:
+  Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
+  APNGKit: eb7e111277527cfd47636f797c9c8e7aab5d9601
+  AttributedString: 48343fcecea107c89319e09436b6d19e90e69981
+  BRPickerView: 84b2effb81f3b9ebd27f1d31de867ae0b37024f7
+  DanmakuKit: 65fd7e1c421179c26d318c3f0dedfb5e83263799
+  Delegate: 0ff4467868095239ff578ab531efd8af46e62881
+  FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
+  HappyDNS: aefbd28cdcda93cffac64013dfe3342a2f87ed0a
+  Hero: 473a0143017e1371d050fcbedb67d317925097f2
+  JXPagingView: afdd2e9af09c90160dd232b970d603cc6e7ddd0e
+  JXSegmentedView: cd73555ce2134d1656db2cb383ba9c2f36fb5078
+  Kingfisher: beeaf65ed57dfa710d416aea4093277e8a9b1968
+  libpag: 66ad10ac99deb76167ba4927474fa62ab432d993
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  Permissions: 8c8b8ba556ad88612770b8124f734f046baf7d8d
+  QGVAPlayer: a0bca68c9bd6f1c8de5ac2d10ddf98be6038cce9
+  Qiniu: 37131e52fdf43fe70da0c89dd0df3c9ce25bb74b
+  R.swift: f573269ca45b2ab066c082e363dd4c2b297b0d71
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
+  SDWebImage: e9fc87c1aab89a8ab1bbd74eba378c6f53be8abf
+  SmartCodable: 077efa3f0a4b7ece8e6229417e5972767a7683a1
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  SwiftLint: 4fa4a9b437ccc4fc72f6c0bc98556e8e9e05bccf
+  SwiftMessages: bfefe945bc05ce7cd328303d53d0d1849e29109d
+  TencentCloudHuiyanSDKFace_framework: a3543f88e28c7cc5f6c93794aa1c1184cd66a3b5
+  TIMCommon: 03058464b7270f32051a41c5ea56f93fbdf3855c
+  TUIChat: 74fc0a4bf0ccaa3998f69068ac31ac77238e4faa
+  TUICore: b012b1acb99a017c675076efe769f8a9bcf20a96
+  TXIMSDK_Plus_iOS: a9ee305cd5779f255b09df69b08dad90b908bab3
+  ZegoExpressAudio: 2cc40fbc2f4a2a28431aa7c4bb0c2697962c5b7e
+  ZLPhotoBrowser: 52c8b386e3f9a7885676027c529a015147df502c
+
+PODFILE CHECKSUM: 70aae7e9d0b020d9a89915a80d6355b2704c2b9c
+
+COCOAPODS: 1.16.2

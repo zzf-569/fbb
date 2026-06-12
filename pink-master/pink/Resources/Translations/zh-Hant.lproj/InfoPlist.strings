@@ -1,0 +1,5 @@
+"NSCameraUsageDescription" = "請允許 \"粉貝貝\" 訪問相机，設置用戶頭像需要此權限";
+"NSMicrophoneUsageDescription" = "請允許 \"粉貝貝\" 訪問麥克風，發送語音,上麥交流下單需求,上傳声音資料功能需要此權限";
+"NSPhotoLibraryAddUsageDescription" = "請允許 \"粉貝貝\" 訪問相冊，設置用戶頭像需要此權限";
+"NSPhotoLibraryUsageDescription" = "請允許 \"粉貝貝\" 訪問相冊，設置用戶頭像需要此權限";
+"CFBundleDisplayName" = "粉贝贝";
