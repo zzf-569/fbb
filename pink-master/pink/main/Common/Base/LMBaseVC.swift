@@ -19,7 +19,8 @@ class LMBaseVC: UIViewController {
         imv.clipsToBounds = true
         self.view.addSubview(imv)
         imv.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(kScaleWidth(330))
         }
         return imv
     }()
@@ -41,6 +42,8 @@ class LMBaseVC: UIViewController {
         super.viewDidLoad()
         set_NavigationBar()
         setViewSnp()
+        view.backgroundColor(.white)
+        backgroundImage = UIImage(named: "base_bg")
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -48,7 +51,7 @@ class LMBaseVC: UIViewController {
     }
     private func set_NavigationBar() {
         self.navigationController?.navigationBar.isHidden = false
-        set_NavigationBackgroundColor(UIColor.white)
+        set_NavigationBackgroundColor(UIColor.clear)
     }
     private func setViewSnp() {
         

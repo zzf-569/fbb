@@ -1,5 +1,5 @@
-"NSCameraUsageDescription" = "Please allow \"Fenbeibei\" to access the camera. This is required to set your profile picture.";
-"NSMicrophoneUsageDescription" = "Please allow \"Fenbeibei\" to access the microphone. This is required for voice messages, mic communication, order requirements, and uploading voice materials.";
-"NSPhotoLibraryAddUsageDescription" = "Please allow \"Fenbeibei\" to access your photo library. This is required to set your profile picture.";
-"NSPhotoLibraryUsageDescription" = "Please allow \"Fenbeibei\" to access your photo library. This is required to set your profile picture.";
-"CFBundleDisplayName" = "Hucent";
+"NSCameraUsageDescription" = "Please allow \"Voior\" to access the camera. This is required to set your profile picture.";
+"NSMicrophoneUsageDescription" = "Please allow \"Voior\" to access the microphone. This is required for voice messages, mic communication, order requirements, and uploading voice materials.";
+"NSPhotoLibraryAddUsageDescription" = "Please allow \"Voior\" to access your photo library. This is required to set your profile picture.";
+"NSPhotoLibraryUsageDescription" = "Please allow \"Voior\" to access your photo library. This is required to set your profile picture.";
+"CFBundleDisplayName" = "Voior";

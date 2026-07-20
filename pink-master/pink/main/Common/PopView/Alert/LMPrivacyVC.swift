@@ -121,7 +121,7 @@ private extension LMPrivacyVC {
             make.height.equalTo(32.0)
         }
         let tipslb = UILabel(lmfont: lmFontM(14), textColor: lmColorHex("#FF4F7DFF"))
-            .lmtext("欢迎使用粉贝贝")
+            .lmtext("欢迎使用Voiro")
         contentView.addSubview(tipslb)
         tipslb.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(24)

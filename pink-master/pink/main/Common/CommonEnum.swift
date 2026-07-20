@@ -41,6 +41,14 @@ enum UserGenderType: Int, SmartCaseDefaultable {
     case boy = 1
     case girl = 2
 }
+
+enum loginType: Int, SmartCaseDefaultable {
+    static var defaultCase: loginType = .emaile
+    case emaile = 1
+    case phone = 2
+    case userName = 3
+}
+
 enum SearchResult: String, SmartCaseDefaultable {
     static var defaultCase: SearchResult = .commandRoom
     case commandRoom = "commandRoom"

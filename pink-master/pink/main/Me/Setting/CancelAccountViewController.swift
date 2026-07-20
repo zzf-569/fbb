@@ -36,7 +36,7 @@ private extension CancelAccountViewController {
         contentView.addSubview(item2)
         let item3 = CancelAccountItemView("收益已结清或得到妥善处理", "收益已结清或得到妥善处理，包括但不善于虚拟货币、道具、会员等权益等收益。请你妥善处理，若为处理则视为您自愿放弃该等权益")
         contentView.addSubview(item3)
-        let item4 = CancelAccountItemView("永久注销，无法登录及数据无法找回", "账号一旦注销无法登录，注销后所有产品数据在「粉贝贝」无法找回")
+        let item4 = CancelAccountItemView("永久注销，无法登录及数据无法找回", "账号一旦注销无法登录，注销后所有产品数据在「Voiro」无法找回")
         contentView.addSubview(item4)
         let btn = UIButton(lmfont: lmFontASHTB(18), titleColor: lmColorHex("#D43F54"), target: self, action: #selector(btnAction))
             .backgroundColor(lmColorHex("#FFFFFF"))
@@ -88,7 +88,7 @@ private extension CancelAccountViewController {
                 UserNetWork.logoff().lmrequest { _ in
                     HUD.showSuccess("注销成功")
                     UserShared.logout {
-                        let login = LoginViewController()
+                        let login = FirstLoginViewController()
                         RootRouter().setRootViewController(controller: BaseNavigationController(rootViewController: login), animatedWithOptions: nil)
                     }
                 } failureBlock: { error in

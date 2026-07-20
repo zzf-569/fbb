@@ -9,12 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LMUIKitLocalization.install()
         window = AppConfig.keyWindow
         window?.makeKeyAndVisible()
-        if isNewDay() {
-            UserDefaults().set(false, forKey: "isgyged")
-            UserDefaults().set("", forKey: "zodiacData")
-            UserDefaults().set(Date(), forKey: "lastSavedDate")
-        } else {
-        }
+       
         notificationsHandler.configure()
         router.loadMainAppStructure()
         return true

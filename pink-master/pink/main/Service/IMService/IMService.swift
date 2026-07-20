@@ -207,7 +207,7 @@ extension IMService: V2TIMSDKListener {
     func onKickedOffline() {
         UserShared.logout {
             let alert = LMAlertCentreVC(title: "提示", message: "当前账户已在其他设备上登录，是否要重新登录？", cancel: nil, confirm: "知道了") { _ in
-                let login = LoginViewController()
+                let login = FirstLoginViewController()
                 RootRouter().setRootViewController(controller: BaseNavigationController(rootViewController: login), animatedWithOptions: nil)
             }
             alert.show(UIViewController.current)

@@ -54,7 +54,9 @@
 		4CB52E422E3207D5007B2A26 /* familyEntertainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB52E302E3207D5007B2A26 /* familyEntertainViewController.swift */; };
 		4CB52E432E3207D5007B2A26 /* familySuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB52E2F2E3207D5007B2A26 /* familySuccessViewController.swift */; };
 		4CB52E442E3207D5007B2A26 /* familyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB52E2D2E3207D5007B2A26 /* familyInfoView.swift */; };
-		6B571C172FDBAEB600EE0AF9 /* launchHuCent.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B571C162FDBAEB600EE0AF9 /* launchHuCent.png */; };
+		6B3A86DB3000DCE9005874B1 /* launch_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A86DA3000DCE9005874B1 /* launch_bg@3x.png */; };
+		6B3A86DD3000E0BE005874B1 /* FirstLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86DC3000E0BE005874B1 /* FirstLoginViewController.swift */; };
+		6B3A86DF30060AC9005874B1 /* LMTextFiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86DE30060AC9005874B1 /* LMTextFiledView.swift */; };
 		872F313F2E43C9DB0088B899 /* RJSwiftMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 872F313E2E43C9DB0088B899 /* RJSwiftMacros */; };
 		872F36852E43CB490088B899 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872F36842E43CB490088B899 /* StoreKit.framework */; };
 		8751B2E12E45EF6A00E91BE8 /* LMSheetTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751B2E02E45EF6A00E91BE8 /* LMSheetTabModel.swift */; };
@@ -492,7 +494,7 @@
 		18953068973EF3B2CFA2D205 /* Pods-pinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinkTests.release.xcconfig"; path = "Target Support Files/Pods-pinkTests/Pods-pinkTests.release.xcconfig"; sourceTree = "<group>"; };
 		2A1DD4DE1F389C2200712195 /* DeeplinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandler.swift; sourceTree = "<group>"; };
 		2A1DD4E01F389E2100712195 /* NotificationsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHandler.swift; sourceTree = "<group>"; };
-		2A1E77331F384BFC006C84D4 /* 粉贝贝.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "粉贝贝.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A1E77331F384BFC006C84D4 /* Voiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voiro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1E77361F384BFC006C84D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A1E773D1F384BFD006C84D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A1E77401F384BFD006C84D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -541,8 +543,10 @@
 		4CB52E332E3207D5007B2A26 /* MyfamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyfamilyViewController.swift; sourceTree = "<group>"; };
 		4CB52E342E3207D5007B2A26 /* familyRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = familyRoleViewController.swift; sourceTree = "<group>"; };
 		55F50BE321404BDD00FAC039 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		6B3A86DA3000DCE9005874B1 /* launch_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch_bg@3x.png"; sourceTree = "<group>"; };
+		6B3A86DC3000E0BE005874B1 /* FirstLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginViewController.swift; sourceTree = "<group>"; };
+		6B3A86DE30060AC9005874B1 /* LMTextFiledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTextFiledView.swift; sourceTree = "<group>"; };
 		6B5717B12FDAC2EA00EE0AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B571C162FDBAEB600EE0AF9 /* launchHuCent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchHuCent.png; sourceTree = "<group>"; };
 		793C70B9FD1B7EC2CEE4FAAC /* Pods_pink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		872F36842E43CB490088B899 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8751B2E02E45EF6A00E91BE8 /* LMSheetTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSheetTabModel.swift; sourceTree = "<group>"; };
@@ -1024,7 +1028,7 @@
 		2A1E77341F384BFC006C84D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A1E77331F384BFC006C84D4 /* 粉贝贝.app */,
+				2A1E77331F384BFC006C84D4 /* Voiro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1167,7 +1171,7 @@
 			isa = PBXGroup;
 			children = (
 				2A1E773D1F384BFD006C84D4 /* Assets.xcassets */,
-				6B571C162FDBAEB600EE0AF9 /* launchHuCent.png */,
+				6B3A86DA3000DCE9005874B1 /* launch_bg@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1743,6 +1747,7 @@
 				87B440122E098CE400ACEE26 /* LMSexAgeView.swift */,
 				87B440132E098CE400ACEE26 /* LMUserTagLB.swift */,
 				87B440142E098CE400ACEE26 /* LMUserTagV.swift */,
+				6B3A86DE30060AC9005874B1 /* LMTextFiledView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1779,6 +1784,7 @@
 				87B440232E098CE400ACEE26 /* PerFectAvatarViewController.swift */,
 				87B440242E098CE400ACEE26 /* PerFectNameViewController.swift */,
 				87B440252E098CE400ACEE26 /* PerFectSexAgeViewController.swift */,
+				6B3A86DC3000E0BE005874B1 /* FirstLoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -2575,7 +2581,7 @@
 			);
 			name = pink;
 			productName = pink;
-			productReference = 2A1E77331F384BFC006C84D4 /* 粉贝贝.app */;
+			productReference = 2A1E77331F384BFC006C84D4 /* Voiro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2624,12 +2630,12 @@
 				87B457BC2E10257500ACEE26 /* xp.pag in Resources */,
 				87B445BE2E098D4E00ACEE26 /* voice_volume.pag in Resources */,
 				87B445BF2E098D4E00ACEE26 /* region_tree_data.json in Resources */,
-				6B571C172FDBAEB600EE0AF9 /* launchHuCent.png in Resources */,
 				2ABEE6D41F38856A00531205 /* Configuration.plist in Resources */,
 				FCB2C7CB1F57127800481080 /* Localizable.strings in Resources */,
 				FCB2C7C81F57127800481080 /* InfoPlist.strings in Resources */,
 				2A1E77411F384BFD006C84D4 /* LaunchScreen.storyboard in Resources */,
 				2A1E773E1F384BFD006C84D4 /* Assets.xcassets in Resources */,
+				6B3A86DB3000DCE9005874B1 /* launch_bg@3x.png in Resources */,
 				87B445BA2E098D3200ACEE26 /* JingNanBoBoHei-Bold-2.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2857,6 +2863,7 @@
 				87B441882E098CE400ACEE26 /* ChangePhoneSendSmsViewController.swift in Sources */,
 				87B441892E098CE400ACEE26 /* LMPickerVC.swift in Sources */,
 				87B4418A2E098CE400ACEE26 /* ChatViewController.swift in Sources */,
+				6B3A86DF30060AC9005874B1 /* LMTextFiledView.swift in Sources */,
 				87B4418C2E098CE400ACEE26 /* GiftWallPageSecCenView.swift in Sources */,
 				87B4418D2E098CE400ACEE26 /* TeenagerModeViewController.swift in Sources */,
 				87B4418E2E098CE400ACEE26 /* ConfigNetWork.swift in Sources */,
@@ -2933,6 +2940,7 @@
 				87609CE32E12E68600AD10B9 /* SkFitViewController.swift in Sources */,
 				8760815E2E12CC4B00AD10B9 /* LMRMRankListCell.swift in Sources */,
 				8760815F2E12CC4B00AD10B9 /* LMRMSendGiftSeatCell.swift in Sources */,
+				6B3A86DD3000E0BE005874B1 /* FirstLoginViewController.swift in Sources */,
 				4CB52E362E3207D5007B2A26 /* MyfamilyApplyViewController.swift in Sources */,
 				4CB52E372E3207D5007B2A26 /* familyUserPageCell.swift in Sources */,
 				4CB52E382E3207D5007B2A26 /* familyPageView.swift in Sources */,
@@ -3431,7 +3439,7 @@
 				CURRENT_PROJECT_VERSION = 26061120;
 				DEVELOPMENT_TEAM = ZD6S3Z524K;
 				INFOPLIST_FILE = pink/SupportingFiles/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "粉贝贝";
+				INFOPLIST_KEY_CFBundleDisplayName = Voiro;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3440,7 +3448,7 @@
 				MARKETING_VERSION = 1.3.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -warn-long-expression-type-checking=500";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fenbeibei.app;
-				PRODUCT_NAME = "粉贝贝";
+				PRODUCT_NAME = Voiro;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -3462,7 +3470,7 @@
 				CURRENT_PROJECT_VERSION = 26061120;
 				DEVELOPMENT_TEAM = ZD6S3Z524K;
 				INFOPLIST_FILE = pink/SupportingFiles/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "粉贝贝";
+				INFOPLIST_KEY_CFBundleDisplayName = Voiro;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3471,7 +3479,7 @@
 				MARKETING_VERSION = 1.3.5;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fenbeibei.app;
-				PRODUCT_NAME = "粉贝贝";
+				PRODUCT_NAME = Voiro;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -3554,7 +3562,7 @@
 				CURRENT_PROJECT_VERSION = 26061120;
 				DEVELOPMENT_TEAM = ZD6S3Z524K;
 				INFOPLIST_FILE = pink/SupportingFiles/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "粉贝贝";
+				INFOPLIST_KEY_CFBundleDisplayName = Voiro;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3563,7 +3571,7 @@
 				MARKETING_VERSION = 1.3.5;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fenbeibei.app;
-				PRODUCT_NAME = "粉贝贝";
+				PRODUCT_NAME = Voiro;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

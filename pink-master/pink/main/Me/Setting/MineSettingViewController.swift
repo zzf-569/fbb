@@ -145,7 +145,7 @@ class MineSettingViewController: LMBaseVC {
         }
         logOutbtn.addGestureTap { [weak self] _ in
             UserShared.logout {
-                let login = LoginViewController()
+                let login = FirstLoginViewController()
                 RootRouter().setRootViewController(controller: BaseNavigationController(rootViewController: login), animatedWithOptions: nil)
             }
         }

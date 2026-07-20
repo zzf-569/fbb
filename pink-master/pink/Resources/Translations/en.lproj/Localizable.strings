@@ -86,7 +86,7 @@
 "roomId 不能为空" = "RoomID empty";
 "url 错误" = "Bad URL";
 "yyyy 年 MM 月 dd 日 HH:mm" = "yyyy-MM-dd HH:mm";
-"© 2025 海南粉贝贝科技有限公司 版权所有" = "©2025 Fenbeibei All Rights Reserved";
+"© 2025 海南Voiro科技有限公司 版权所有" = "©2025 Fenbeibei All Rights Reserved";
 "・认证前请确认您已满 18 岁，未满 18 岁您将无法认证。\n・您提供的证件信息将受到严格保护，未经本人许可不会用做其他用途；" = "・18+ only for verify\n・ID data protected, no unauthorized use";
 "・在线" = "・Online";
 "《充值协议》" = "Recharge Agmt";
@@ -455,7 +455,7 @@
 "模式" = "Mode";
 "欢迎" = "Welcome";
 "欢迎使用" = "Welcome to";
-"欢迎使用粉贝贝" = "Welcome Fenbeibei";
+"欢迎使用Voiro" = "Welcome Fenbeibei";
 "正在 PK 中，逃跑之后直接输掉比赛，确定要继续吗？" = "PK running, leave = lose, confirm?";
 "正在 PK 中，点击结束" = "PK running, tap end";
 "正在处理中，请耐⼼等待" = "Processing, wait";
@@ -561,7 +561,7 @@
 "类型" = "Type";
 "类型：" = "Type:";
 "粉丝" = "Fan";
-"粉贝贝" = "Fenbeibei";
+"Voiro" = "Fenbeibei";
 "绑定成功" = "Bind OK";
 "结束" = "End";
 "编辑" = "Edit";
@@ -599,9 +599,9 @@
 "试音达人" = "Audition Streamer";
 "该房间已关播" = "Room offline";
 "请上传图片" = "Upload img";
-"请允许\"粉贝贝\"访问相机，设置用户头像需要此权限" = "Allow camera for avatar";
-"请允许\"粉贝贝\"访问麦克风，发送语音，上麦交流下单需求，上传声音资料功能需要此权限" = "Allow mic for voice/mic/order/audio upload";
-"请允许\"粉贝贝\"访问相册，设置用户头像需要此权限" = "Allow photo lib for avatar";
+"请允许\"Voiro\"访问相机，设置用户头像需要此权限" = "Allow camera for avatar";
+"请允许\"Voiro\"访问麦克风，发送语音，上麦交流下单需求，上传声音资料功能需要此权限" = "Allow mic for voice/mic/order/audio upload";
+"请允许\"Voiro\"访问相册，设置用户头像需要此权限" = "Allow photo lib for avatar";
 "请先结束 PK" = "End PK first";
 "请关闭游戏" = "Close game";
 "请前往自己房间查看皮肤" = "Check outfit in your room";
@@ -669,7 +669,7 @@
 "谢谢关注房间" = "Thanks follow room";
 "贝壳" = "Shell";
 "贝壳余额" = "Shell Bal";
-"账号一旦注销无法登录，注销后所有产品数据在「粉贝贝」无法找回" = "Delete acc = no login, all data lost";
+"账号一旦注销无法登录，注销后所有产品数据在「Voiro」无法找回" = "Delete acc = no login, all data lost";
 "账号与安全" = "Acc & Security";
 "账号出于安全状态" = "Acc secure";
 "账号资料" = "Acc Profile";

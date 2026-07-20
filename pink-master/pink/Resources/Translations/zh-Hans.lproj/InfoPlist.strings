@@ -1,5 +1,5 @@
-"NSCameraUsageDescription" = "请允许 \"粉贝贝\" 访问相机，设置用户头像需要此权限";
-"NSMicrophoneUsageDescription" = "请允许 \"粉贝贝\" 访问麦克风，发送语音,上麦交流下单需求,上传声音资料功能需要此权限";
-"NSPhotoLibraryAddUsageDescription" = "请允许 \"粉贝贝\" 访问相册，设置用户头像需要此权限";
-"NSPhotoLibraryUsageDescription" = "请允许 \"粉贝贝\" 访问相册，设置用户头像需要此权限";
-"CFBundleDisplayName" = "粉贝贝";
+"NSCameraUsageDescription" = "请允许 \"Voiro\" 访问相机，设置用户头像需要此权限";
+"NSMicrophoneUsageDescription" = "请允许 \"Voiro\" 访问麦克风，发送语音,上麦交流下单需求,上传声音资料功能需要此权限";
+"NSPhotoLibraryAddUsageDescription" = "请允许 \"Voiro\" 访问相册，设置用户头像需要此权限";
+"NSPhotoLibraryUsageDescription" = "请允许 \"Voiro\" 访问相册，设置用户头像需要此权限";
+"CFBundleDisplayName" = "Voiro";

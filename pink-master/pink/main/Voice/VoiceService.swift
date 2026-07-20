@@ -19,7 +19,7 @@ extension VoiceService {
             return
         }
         guard UserShared.isLogin else {
-            let login = LoginViewController()
+            let login = FirstLoginViewController()
             RootRouter().setRootViewController(controller: BaseNavigationController(rootViewController: login), animatedWithOptions: nil)
             return
         }

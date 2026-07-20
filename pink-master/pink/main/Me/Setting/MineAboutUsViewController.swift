@@ -77,7 +77,7 @@ private extension MineAboutUsViewController {
         agreementView.addSubview(underageAgreementbtn)
         let copyrightlb = UILabel(lmfont: lmFontF(12), textColor: lmColorHex("#2B313D66"))
             .textAlignment(.left)
-            .lmtext("© 2025 海南粉贝贝科技有限公司 版权所有")
+            .lmtext("© 2025 海南Voiro科技有限公司 版权所有")
         bottomView.addSubview(copyrightlb)
         let recordlb = UILabel(lmfont: lmFontF(12), textColor: lmColorHex("#2B313D66"))
             .textAlignment(.left)

@@ -25,13 +25,13 @@ class RootRouter {
                 self.setRootViewController(controller: tabBar, animatedWithOptions: nil)
                 UserShared.login(model: LoginItem) {
                     guard let _ = UserShared.user else {
-                        AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: LoginViewController())
+                        AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: FirstLoginViewController())
                         return
                     }
                    
                 }
             } else {
-                AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: LoginViewController())
+                AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: FirstLoginViewController())
             }
         }
         checkVersion()
@@ -55,7 +55,7 @@ class RootRouter {
                 }
             }
         } else {
-            AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: LoginViewController())
+            AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: FirstLoginViewController())
         }
     }
 }

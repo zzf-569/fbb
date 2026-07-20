@@ -64,7 +64,7 @@ extension BaseTargetType {
                                 guard !UserShared.isNotified else { return }
                                 UserShared.isNotified = true
                                 DispatchQueue.main.async {
-                                    let login = LoginViewController()
+                                    let login = FirstLoginViewController()
                                     AppConfig.keyWindow.rootViewController = BaseNavigationController(rootViewController: login)
                                     AppConfig.keyWindow.makeKeyAndVisible()
                                 }

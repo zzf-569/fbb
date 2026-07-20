@@ -62,7 +62,7 @@ class LMShopBuyPopView: BasePopViewController {
     lazy var textlb: UILabel = {
         let lb = UILabel(lmfont: lmFontR(20), textColor: .textDefaulColor)
             .textAlignment(.center)
-            .lmtext("粉贝贝")
+            .lmtext("Voiro")
             .numberOfLines(0)
         return lb
     }()

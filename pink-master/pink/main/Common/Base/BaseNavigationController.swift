@@ -36,9 +36,14 @@ class BaseNavigationController: UINavigationController {
             viewController.hidesBottomBarWhenPushed = true
             viewController.navigationItem.backBarButtonItem = nil
             viewController.navigationItem.setHidesBackButton(true, animated: true)
-            let btn = UIButton(image: UIImage(named: "cm_back"), target: self, action: #selector(backItemDidiClick))
-            btn.frame = CGRect(x: 0, y: 0, width: 44, height: 44) 
+            let btn = UIButton(image: UIImage(named: "backicon"), target: self, action: #selector(backItemDidiClick))
+            btn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
             let leftBarButtonItem = UIBarButtonItem(customView: btn)
+            if #available(iOS 26.0, *) {
+                leftBarButtonItem.hidesSharedBackground = true
+            } else {
+                // Fallback on earlier versions
+            }
             viewController.navigationItem.leftBarButtonItem = leftBarButtonItem
         }
         super.pushViewController(viewController, animated: animated)
