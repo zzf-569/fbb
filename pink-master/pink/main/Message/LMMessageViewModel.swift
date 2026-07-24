@@ -34,13 +34,13 @@ class LMMessageViewModel: NSObject {
             lmPrint("Conversation List：\(list)")
             var tempDataSource: [ConversationListItem] = []
             let converID1 = kConversationId(imUserId: AppConfig.IMConfig.officialIMID)
-            if let message = list.first(where: { $0.conversationID == converID1 }) {
-                let model = ConversationListItem(converID: message.conversationID!, imConversation: message)
-                tempDataSource.append(model)
-            } else {
-                let model = ConversationListItem(converID: converID1)
-                tempDataSource.append(model)
-            }
+//            if let message = list.first(where: { $0.conversationID == converID1 }) {
+//                let model = ConversationListItem(converID: message.conversationID!, imConversation: message)
+//                tempDataSource.append(model)
+//            } else {
+//                let model = ConversationListItem(converID: converID1)
+//                tempDataSource.append(model)
+//            }
             let converIDcus = kConversationId(imUserId: AppConfig.IMConfig.customUserId)
             if AppConfig.IMConfig.customUserId.isEmpty == false {
                 if let message = list.first(where: { $0.conversationID == converIDcus }) {

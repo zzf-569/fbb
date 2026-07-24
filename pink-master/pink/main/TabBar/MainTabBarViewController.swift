@@ -38,47 +38,47 @@ class MainTabBarViewController: UITabBarController {
     
      
         /// 首页
-        let listen = LMHearVC()
+        let listen = LMHomeViewController()
         addChildViewController(listen,
-                               title: "听听",
-                               image: UIImage(named: "tab_hear"),
-                               selectedImage: UIImage(named: "tab_hear_s"))
+                               title: "Home",
+                               image: UIImage(named: "tabbar_home"),
+                               selectedImage: UIImage(named: "tabbar_homesele"))
 
         ///
-        let order = findOrderViewController()
-        addChildViewController(order,
-                               title: "派单",
-                               image: UIImage(named: "tab_order"),
-                               selectedImage: UIImage(named: "tab_order_s"))
-        
-        let zodiav = ZodiacViewController()
-        addChildViewController(zodiav,
-                               title: "生肖",
-                               image: UIImage(named: "tab_zodiac"),
-                               selectedImage: UIImage(named: "tab_zodiac_s"))
+//        let order = findOrderViewController()
+//        addChildViewController(order,
+//                               title: "Chats",
+//                               image: UIImage(named: "tabbar_msg"),
+//                               selectedImage: UIImage(named: "tabbar_msgsele"))
+//        
+//        let zodiav = ZodiacViewController()
+//        addChildViewController(zodiav,
+//                               title: "Me",
+//                               image: UIImage(named: "tabbar_mine"),
+//                               selectedImage: UIImage(named: "tabbar_minesele"))
         
         
         ///
         let message = LMMsgVC(isRoom: false)
         addChildViewController(message,
-                               title: "消息",
-                               image: UIImage(named: "tab_msg"),
-                               selectedImage: UIImage(named: "tab_msg_s"))
+                               title: "Chats",
+                               image: UIImage(named: "tabbar_msg"),
+                               selectedImage: UIImage(named: "tabbar_msgsele"))
         
         
         /// 我的
         let mineVC = LMUserViewController(user: UserShared.user!)
         addChildViewController(mineVC,
-                               title: "小窝",
-                               image: UIImage(named: "tab_user"),
-                               selectedImage: UIImage(named: "tab_user_s"))
+                               title: "Me",
+                               image: UIImage(named: "tabbar_mine"),
+                               selectedImage: UIImage(named: "tabbar_minesele"))
     
         
     }
     
     @objc func nt_imUnreadMessageCountChange(_ notification: Notification) {
         guard let count = notification.userInfo?["count"] as? Int else { return }
-        self.tabBar.items?[3].badgeValue = count == 0 ? nil : count.toString()
+        self.tabBar.items?[1].badgeValue = count == 0 ? nil : count.toString()
     }
      
 

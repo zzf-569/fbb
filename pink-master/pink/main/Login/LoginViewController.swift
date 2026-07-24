@@ -34,6 +34,8 @@ class LoginViewController: LMBaseVC {
     lazy var enterField: LMTextFiledView = {
         let field = LMTextFiledView()
         field.textField.placeholder = "Enter code"
+        field.textField.rightView = sendCodebtn
+        field.textField.rightViewMode = .always
         return field
     }()
 
@@ -41,6 +43,7 @@ class LoginViewController: LMBaseVC {
         let lb = UILabel(lmfont: lmFontF(14), textColor: UIColor.textSecondColor)
             .textAlignment(.center)
             .lmtext("")
+            .numberOfLines(0)
         return lb
     }()
     lazy var nextbtn: UIButton = {
@@ -52,7 +55,19 @@ class LoginViewController: LMBaseVC {
     private lazy var sendCodebtn: UIButton = {
         let btn = UIButton(lmfont: lmFontM(14), titleColor: lmColorHex("#7DCE02"), target: self, action: #selector(resetSendCodebtnAction))
             .titleColor(UIColor.textDisColor, .disabled)
+            .frame(CGRectMake(0, 0, 40, kScaleWidth(40)))
         btn.lmtitle("Get")
+        return btn
+    }()
+    
+    
+    private lazy var codeBtn: UIButton = {
+        let btn = UIButton(lmfont: lmFontM(14), titleColor: lmColorHex("#192218"), target: self, action: #selector(showCountrySelectView))
+            .titleColor(UIColor.textDisColor, .disabled)
+            .image(UIImage(named: "more_down"))
+            .frame(CGRectMake(0, 0, 60, kScaleWidth(40)))
+        btn.lmtitle("+86")
+        btn.set_ImageTitleLayout(.imgRight, spacing: 1)
         return btn
     }()
     
@@ -72,6 +87,22 @@ class LoginViewController: LMBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch type {
+        case .emaile:
+            title = "Sign in with Mail"
+            userField.textField.placeholder = "Enter email"
+        case .phone:
+            title = "Sign in with Phone"
+            userField.textField.placeholder = "Enter phone"
+            userField.textField.leftView = codeBtn
+            userField.textField.leftViewMode = .always
+        case .userName:
+            title = "Sign In With Account"
+            userField.textField.placeholder = "Enter user ID or email"
+
+        }
+        
         setViewSnp()
         set_upAgreement()
         IMService.shared.initSDK()
@@ -89,7 +120,6 @@ class LoginViewController: LMBaseVC {
         view.addSubview(enterField)
         view.addSubview(userField)
 
-        view.addSubview(sendCodebtn)
         view.addSubview(agreementlb)
         view.addSubview(nextbtn)
         titleLab.snp.makeConstraints { make in
@@ -129,13 +159,11 @@ class LoginViewController: LMBaseVC {
         
         
        
-        sendCodebtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-kScaleWidth(32))
-            make.centerY.equalToSuperview()
-        }
+      
        
         agreementlb.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(kScaleWidth(24))
             make.top.equalTo(nextbtn.snp.bottom).offset(kScaleWidth(16))
         }
         
@@ -171,6 +199,16 @@ class LoginViewController: LMBaseVC {
     }
 }
 extension LoginViewController {
+    @objc func showCountrySelectView() {
+        view.endEditing(true)
+        let countryView = CountrySelectView()
+        countryView.didSelectCountry = { [weak self] country in
+            self?.codeBtn.lmtitle(country.dialCode)
+            self?.codeBtn.set_ImageTitleLayout(.imgRight, spacing: 1)
+        }
+        countryView.show()
+    }
+
     @objc func resetSendCodebtnAction() {
         guard let phone = self.userField.textField.text, phone.length == 11 else {
             return
@@ -234,7 +272,7 @@ extension LoginViewController {
             self.timer = nil
             HUD.hide()
             if model.newUser {
-                let vc = PerFectSexAgeViewController()
+                let vc = DateOfBirthViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 let login = BaseNavigationController(rootViewController: MainTabBarViewController())

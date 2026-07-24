@@ -167,7 +167,7 @@ class FirstLoginViewController: LMBaseVC {
         }
         
         for (index, button) in alternativeIconViews.enumerated() {
-            button.tag = index
+            button.tag = index + 1
             button.addTarget(self, action: #selector(loginClick), for: .touchUpInside)
         }
         

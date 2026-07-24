@@ -6,22 +6,41 @@ class LMMsgVC: LMBaseVC {
     private let isRoom: Bool
     private let viewModel = LMMessageViewModel()
     private lazy var titleLab: UILabel = {
-        let lb = UILabel(lmfont: lmFontASHTB(24), textColor: .white)
-            .lmtext("聊一聊")
+        let lb = UILabel(lmfont: lmFontM(24), textColor: .textDefaulColor)
+            .lmtext("Chat")
         return lb
     }()
-    lazy var likeMe: UIButton = {
+    lazy var system: UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "msg_ord"), for: .normal)
+        btn.setImage(UIImage(named: "msg_system"), for: .normal)
+        btn.setTitle("System", for: .normal)
+        btn.setTitleColor(.textDefaulColor, for: .normal)
         btn.addTarget(self, action: #selector(turnLike), for: .touchUpInside)
+        btn.set_ImageTitleLayout(.imgTop, spacing: 8)
         return btn
     }()
-    lazy var meLike: UIButton = {
+    lazy var event: UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "msg_myord"), for: .normal)
+        btn.setImage(UIImage(named: "msg_event"), for: .normal)
+        btn.setTitle("Event", for: .normal)
+        btn.setTitleColor(.textDefaulColor, for: .normal)
         btn.addTarget(self, action: #selector(turnLikeMe), for: .touchUpInside)
+        btn.set_ImageTitleLayout(.imgTop, spacing: 8)
+
         return btn
     }()
+    
+    lazy var custom: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "msg_custom"), for: .normal)
+        btn.setTitle("Customer", for: .normal)
+        btn.setTitleColor(.textDefaulColor, for: .normal)
+        btn.addTarget(self, action: #selector(turnLikeMe), for: .touchUpInside)
+        btn.set_ImageTitleLayout(.imgTop, spacing: 8)
+        return btn
+    }()
+    
+    
     private lazy var clearbtn: UIButton = {
         let btn = UIButton(image: UIImage(named: "msg_clear"), target: self, action: #selector(clearbtnAction))
         return btn
@@ -67,11 +86,13 @@ private extension LMMsgVC {
         view.addSubview(centerView)
         view.addSubview(titleLab)
         view.addSubview(clearbtn)
-        centerView.addSubview(likeMe)
-        centerView.addSubview(meLike)
+        centerView.addSubview(system)
+        centerView.addSubview(event)
+        centerView.addSubview(custom)
+
         centerView.addSubview(tableView)
         titleLab.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(12)
             make.top.equalToSuperview().offset(isRoom ? 12 : kStatusBarHeight + 8)
             make.size.equalTo(CGSize(width: 72, height: 36))
         }
@@ -85,15 +106,21 @@ private extension LMMsgVC {
             make.top.equalToSuperview().offset(isRoom ? 20 : kNavigationHeight)
             make.bottom.equalToSuperview().offset(isRoom ? -kTabBarSafeHeight : 0)
         }
-        likeMe.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(20)
-            make.size.equalTo(CGSize(width: kScaleWidth(168), height: kScaleWidth(72)))
+        system.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(12)
+            make.size.equalTo(CGSize(width: kScaleWidth(120), height: kScaleWidth(80)))
         }
-        meLike.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20)
-            make.top.equalToSuperview().offset(20)
-            make.size.equalTo(CGSize(width: kScaleWidth(168), height: kScaleWidth(72)))
+        event.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(12)
+            make.size.equalTo(CGSize(width: kScaleWidth(120), height: kScaleWidth(80)))
+        }
+        
+        custom.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-16)
+            make.top.equalToSuperview().offset(12)
+            make.size.equalTo(CGSize(width: kScaleWidth(120), height: kScaleWidth(80)))
         }
         tableView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()

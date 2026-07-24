@@ -57,6 +57,13 @@
 		6B3A86DB3000DCE9005874B1 /* launch_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A86DA3000DCE9005874B1 /* launch_bg@3x.png */; };
 		6B3A86DD3000E0BE005874B1 /* FirstLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86DC3000E0BE005874B1 /* FirstLoginViewController.swift */; };
 		6B3A86DF30060AC9005874B1 /* LMTextFiledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86DE30060AC9005874B1 /* LMTextFiledView.swift */; };
+		6B3A86E13006C001005874B1 /* CountrySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86E03006C001005874B1 /* CountrySelectView.swift */; };
+		6B3A86E33006C002005874B1 /* SetUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86E23006C002005874B1 /* SetUpProfileViewController.swift */; };
+		6B3A86E53006C003005874B1 /* DateOfBirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86E43006C003005874B1 /* DateOfBirthViewController.swift */; };
+		6B3A86E73006C004005874B1 /* GenderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A86E63006C004005874B1 /* GenderSelectViewController.swift */; };
+		6B3A872B3010A191005874B1 /* LMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872A3010A191005874B1 /* LMHomeViewController.swift */; };
+		6B3A872D3010AE6A005874B1 /* LMHomeHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872C3010AE6A005874B1 /* LMHomeHotCell.swift */; };
+		6B3A872F3010B178005874B1 /* LMHomeSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872E3010B178005874B1 /* LMHomeSeatView.swift */; };
 		872F313F2E43C9DB0088B899 /* RJSwiftMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 872F313E2E43C9DB0088B899 /* RJSwiftMacros */; };
 		872F36852E43CB490088B899 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872F36842E43CB490088B899 /* StoreKit.framework */; };
 		8751B2E12E45EF6A00E91BE8 /* LMSheetTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751B2E02E45EF6A00E91BE8 /* LMSheetTabModel.swift */; };
@@ -546,6 +553,13 @@
 		6B3A86DA3000DCE9005874B1 /* launch_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch_bg@3x.png"; sourceTree = "<group>"; };
 		6B3A86DC3000E0BE005874B1 /* FirstLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginViewController.swift; sourceTree = "<group>"; };
 		6B3A86DE30060AC9005874B1 /* LMTextFiledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTextFiledView.swift; sourceTree = "<group>"; };
+		6B3A86E03006C001005874B1 /* CountrySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectView.swift; sourceTree = "<group>"; };
+		6B3A86E23006C002005874B1 /* SetUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpProfileViewController.swift; sourceTree = "<group>"; };
+		6B3A86E43006C003005874B1 /* DateOfBirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthViewController.swift; sourceTree = "<group>"; };
+		6B3A86E63006C004005874B1 /* GenderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectViewController.swift; sourceTree = "<group>"; };
+		6B3A872A3010A191005874B1 /* LMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeViewController.swift; sourceTree = "<group>"; };
+		6B3A872C3010AE6A005874B1 /* LMHomeHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeHotCell.swift; sourceTree = "<group>"; };
+		6B3A872E3010B178005874B1 /* LMHomeSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeSeatView.swift; sourceTree = "<group>"; };
 		6B5717B12FDAC2EA00EE0AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C70B9FD1B7EC2CEE4FAAC /* Pods_pink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		872F36842E43CB490088B899 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -1770,9 +1784,12 @@
 			children = (
 				87607F432E12CC1F00AD10B9 /* LMHearHeaderView.swift */,
 				87607F442E12CC1F00AD10B9 /* LMHearPageCell.swift */,
+				6B3A872C3010AE6A005874B1 /* LMHomeHotCell.swift */,
+				6B3A872E3010B178005874B1 /* LMHomeSeatView.swift */,
 				87607F452E12CC1F00AD10B9 /* LMHearPageVC.swift */,
 				87607F462E12CC1F00AD10B9 /* LMHearVC.swift */,
 				87607F472E12CC1F00AD10B9 /* LMHearViewModel.swift */,
+				6B3A872A3010A191005874B1 /* LMHomeViewController.swift */,
 			);
 			path = hear;
 			sourceTree = "<group>";
@@ -1780,6 +1797,10 @@
 		87B440282E098CE400ACEE26 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				6B3A86E43006C003005874B1 /* DateOfBirthViewController.swift */,
+				6B3A86E63006C004005874B1 /* GenderSelectViewController.swift */,
+				6B3A86E23006C002005874B1 /* SetUpProfileViewController.swift */,
+				6B3A86E03006C001005874B1 /* CountrySelectView.swift */,
 				87B440222E098CE400ACEE26 /* LoginViewController.swift */,
 				87B440232E098CE400ACEE26 /* PerFectAvatarViewController.swift */,
 				87B440242E098CE400ACEE26 /* PerFectNameViewController.swift */,
@@ -2941,6 +2962,10 @@
 				8760815E2E12CC4B00AD10B9 /* LMRMRankListCell.swift in Sources */,
 				8760815F2E12CC4B00AD10B9 /* LMRMSendGiftSeatCell.swift in Sources */,
 				6B3A86DD3000E0BE005874B1 /* FirstLoginViewController.swift in Sources */,
+				6B3A86E13006C001005874B1 /* CountrySelectView.swift in Sources */,
+				6B3A86E33006C002005874B1 /* SetUpProfileViewController.swift in Sources */,
+				6B3A86E53006C003005874B1 /* DateOfBirthViewController.swift in Sources */,
+				6B3A86E73006C004005874B1 /* GenderSelectViewController.swift in Sources */,
 				4CB52E362E3207D5007B2A26 /* MyfamilyApplyViewController.swift in Sources */,
 				4CB52E372E3207D5007B2A26 /* familyUserPageCell.swift in Sources */,
 				4CB52E382E3207D5007B2A26 /* familyPageView.swift in Sources */,
@@ -2954,6 +2979,7 @@
 				4CB52E402E3207D5007B2A26 /* LMFamApplyTableViewCell.swift in Sources */,
 				8751B2E12E45EF6A00E91BE8 /* LMSheetTabModel.swift in Sources */,
 				4CB52E412E3207D5007B2A26 /* familyRoomPageView.swift in Sources */,
+				6B3A872B3010A191005874B1 /* LMHomeViewController.swift in Sources */,
 				4CB52E422E3207D5007B2A26 /* familyEntertainViewController.swift in Sources */,
 				4CB52E432E3207D5007B2A26 /* familySuccessViewController.swift in Sources */,
 				4CB52E442E3207D5007B2A26 /* familyInfoView.swift in Sources */,
@@ -3063,6 +3089,7 @@
 				87B441CD2E098CE400ACEE26 /* MainTabBarViewController.swift in Sources */,
 				87B441CE2E098CE400ACEE26 /* LMBageRecordCell.swift in Sources */,
 				87B441CF2E098CE400ACEE26 /* LMShopVC.swift in Sources */,
+				6B3A872D3010AE6A005874B1 /* LMHomeHotCell.swift in Sources */,
 				87B441D02E098CE400ACEE26 /* RealAuthViewController.swift in Sources */,
 				87B441D22E098CE400ACEE26 /* BaseCollectionViewController.swift in Sources */,
 				87B441D42E098CE400ACEE26 /* LMShopHeaderView.swift in Sources */,
@@ -3257,6 +3284,7 @@
 				87B446502E09911E00ACEE26 /* LMDanmuProtocol.swift in Sources */,
 				87B446512E09911E00ACEE26 /* LMAudioRecord.swift in Sources */,
 				87CF3A702E3D11EF003E70C3 /* LMSpeakItem.swift in Sources */,
+				6B3A872F3010B178005874B1 /* LMHomeSeatView.swift in Sources */,
 				87B446532E09911E00ACEE26 /* LMAudioPlayer.swift in Sources */,
 				87B446542E09911E00ACEE26 /* Int+LM.swift in Sources */,
 				87B446552E09911E00ACEE26 /* LMDanmuView.swift in Sources */,

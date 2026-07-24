@@ -4923,7 +4923,7 @@ struct _R {
     }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 11 images.
+  /// This `_R.image` struct is generated, and contains static references to 33 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -4932,6 +4932,18 @@ struct _R {
 
     /// Image `base_bg`.
     var base_bg: RswiftResources.ImageResource { .init(name: "base_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_left`.
+    var home_left: RswiftResources.ImageResource { .init(name: "home_left", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_left_sele`.
+    var home_left_sele: RswiftResources.ImageResource { .init(name: "home_left_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_right`.
+    var home_right: RswiftResources.ImageResource { .init(name: "home_right", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_right_sele`.
+    var home_right_sele: RswiftResources.ImageResource { .init(name: "home_right_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `launch_bg`.
     var launch_bg: RswiftResources.ImageResource { .init(name: "launch_bg", path: [], bundle: bundle, locale: LocaleReference.none, onDemandResourceTags: nil) }
@@ -4954,11 +4966,65 @@ struct _R {
     /// Image `login_phone`.
     var login_phone: RswiftResources.ImageResource { .init(name: "login_phone", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `man`.
+    var man: RswiftResources.ImageResource { .init(name: "man", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `man_sele`.
+    var man_sele: RswiftResources.ImageResource { .init(name: "man_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `more_down`.
+    var more_down: RswiftResources.ImageResource { .init(name: "more_down", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `msg_custom`.
+    var msg_custom: RswiftResources.ImageResource { .init(name: "msg_custom", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `msg_event`.
+    var msg_event: RswiftResources.ImageResource { .init(name: "msg_event", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `msg_system`.
+    var msg_system: RswiftResources.ImageResource { .init(name: "msg_system", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sex_nomor`.
+    var sex_nomor: RswiftResources.ImageResource { .init(name: "sex_nomor", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sex_sele`.
+    var sex_sele: RswiftResources.ImageResource { .init(name: "sex_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sex_unk_sele`.
+    var sex_unk_sele: RswiftResources.ImageResource { .init(name: "sex_unk_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `sex_unkonw`.
+    var sex_unkonw: RswiftResources.ImageResource { .init(name: "sex_unkonw", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_home`.
+    var tabbar_home: RswiftResources.ImageResource { .init(name: "tabbar_home", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_homesele`.
+    var tabbar_homesele: RswiftResources.ImageResource { .init(name: "tabbar_homesele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_mine`.
+    var tabbar_mine: RswiftResources.ImageResource { .init(name: "tabbar_mine", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_minesele`.
+    var tabbar_minesele: RswiftResources.ImageResource { .init(name: "tabbar_minesele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_msg`.
+    var tabbar_msg: RswiftResources.ImageResource { .init(name: "tabbar_msg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar_msgsele`.
+    var tabbar_msgsele: RswiftResources.ImageResource { .init(name: "tabbar_msgsele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `textF_left`.
     var textF_left: RswiftResources.ImageResource { .init(name: "textF_left", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `textF_right`.
     var textF_right: RswiftResources.ImageResource { .init(name: "textF_right", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `women`.
+    var women: RswiftResources.ImageResource { .init(name: "women", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `women_sele`.
+    var women_sele: RswiftResources.ImageResource { .init(name: "women_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.

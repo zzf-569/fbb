@@ -62,8 +62,8 @@ public extension   UIColor {
     }
 }
  public extension UIColor {
-    static var textDefaulColor: UIColor { lmColorHex("#2B313D") }
-    static var textSecondColor: UIColor { lmColorHex("#2B313DA3") }
+    static var textDefaulColor: UIColor { lmColorHex("#192218") }
+     static var textSecondColor: UIColor { lmColorHex("#192218", alpha: 0.64) }
     static var textTerColor: UIColor { lmColorHex("#2B313D66") }
     static var textDisColor: UIColor { lmColorHex("#3D2B313D") }
     static var textAnti: UIColor { lmColorHex("#ffffff") }

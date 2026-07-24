@@ -1,103 +1,117 @@
 import UIKit
+
 class LMHearPageCell: UICollectionViewCell {
     func set_(model: RoomItem, index: Int) {
-        cover.set_Image(url: model.cover, placeholder: UIImage(named: "ICON"))
-        name.text = model.roomName
-        hotbtn.setTitle(model.hotValue.toString().StringToHotVaule(), for: .normal)
-        typelb.text = model.typeValue
-        if index%4 == 0 {
-            bgView.backgroundColor = lmColorHex("#328BF914")
-        } else if index%4 == 1 {
-            bgView.backgroundColor = lmColorHex("#FF9F4014")
-        } else if index%4 == 2 {
-            bgView.backgroundColor = lmColorHex("#F5455C14")
-        } else if index%4 == 3 {
-            bgView.backgroundColor = lmColorHex("#26D47714")
-        }
-        layoutIfNeeded()
-        if self.bgView.height > self.height {
-            bgView.snp.remakeConstraints { make in
-                make.top.left.right.equalToSuperview()
-                make.bottom.equalToSuperview()
-            }
-            self.name.snp.remakeConstraints { make in
-                make.left.equalToSuperview().inset(kScaleWidth(16))
-                make.top.equalTo(cover.snp.bottom).offset(kScaleWidth(12))
-                make.width.equalTo(kScaleWidth(28))
-                make.bottom.equalToSuperview().offset(-72)
-            }
+        coverImage.set_Image(url: model.cover, placeholder: UIImage(named: "ICON"))
+        nameLabel.text = model.roomName
+        tagImage.set_Image(url: model.tagUrl)
+        tagImage.isHidden = model.tagUrl.isEmpty
+        hotButton.setTitle(model.hotValue.toString().StringToHotVaule(), for: .normal)
+        seatView.model = model.onlineAvatarList
+
+        countryImage.isHidden = model.cornerMark.isEmpty
+        if model.cornerMark.isEmpty == false {
+            countryImage.set_Image(url: model.cornerMark)
         }
     }
-    lazy var bgView: UIView = {
-        let view = UIView()
-        view.cornerRadius(12)
-        return view
+
+    private lazy var coverImage: UIImageView = {
+        let imageView = UIImageView(image: kPlaceholder_image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.cornerRadius(kScaleWidth(12))
+        return imageView
     }()
-    lazy var cover: UIImageView = {
-        let imageV = UIImageView()
-        imageV.cornerRadius(8)
-        return imageV
+
+    private lazy var countryImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
-    lazy var name: UILabel = {
-        let lb = UILabel()
-        lb.numberOfLines = 0
-        lb.textAlignment = .center
-        lb.font = lmFontM(16)
-        lb.textColor = lmColorHex("#2B313D")
-        return lb
+
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel(lmfont: lmFontM(16), textColor: .textDefaulColor)
+        label.lineBreakMode = .byTruncatingTail
+        return label
     }()
-    lazy var hotbtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "hot"), for: .normal)
-        btn.set_ImageTitleLayout(.imgLeft, spacing: 2)
-        btn.setTitleColor(lmColorHex("#2B313DAD"), for: .normal)
-        btn.titleLabel?.font = lmFontR(10)
-        return btn
+
+    private lazy var tagImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
-    lazy var typelb: UILabel = {
-        let lb = UILabel()
-        lb.font = lmFontR(10)
-        lb.textColor = lmColorHex("#FF4F7DFF")
-        lb.backgroundColor = lmColorHex("#328BF914")
-        lb.cornerRadius(12)
-        lb.textAlignment = .center
-        return lb
+
+    private lazy var seatView: LMHomeSeatView = {
+        LMHomeSeatView()
     }()
+
+    private lazy var hotButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "hot")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = lmColorHex("#2B313D66")
+        button.setTitleColor(lmColorHex("#2B313D66"), for: .normal)
+        button.titleLabel?.font = lmFontR(12)
+        button.set_ImageTitleLayout(.imgLeft, spacing: 3)
+        button.isUserInteractionEnabled = false
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViewSnp()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     private func setViewSnp() {
-        contentView.addSubview(bgView)
-        bgView.addSubview(cover)
-        bgView.addSubview(name)
-        bgView.addSubview(hotbtn)
-        bgView.addSubview(typelb)
-        bgView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+        contentView.backgroundColor = .white
+        contentView.cornerRadius(kScaleWidth(12))
+        contentView.clipsToBounds = true
+
+        contentView.addSubview(coverImage)
+        contentView.addSubview(countryImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(tagImage)
+        contentView.addSubview(seatView)
+        contentView.addSubview(hotButton)
+
+        coverImage.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(kScaleWidth(10))
+            make.centerY.equalToSuperview()
+            make.size.equalTo(CGSize(width: kScaleWidth(92), height: kScaleWidth(92)))
         }
-        cover.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().offset(kScaleWidth(12))
-            make.size.equalTo(CGSize(width: kScaleWidth(36), height: kScaleWidth(36)))
+
+        countryImage.snp.makeConstraints { make in
+            make.left.equalTo(coverImage.snp.right).offset(kScaleWidth(12))
+            make.top.equalToSuperview().offset(kScaleWidth(14))
+            make.size.equalTo(CGSize(width: kScaleWidth(24), height: kScaleWidth(18)))
         }
-        name.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(kScaleWidth(16))
-            make.top.equalTo(cover.snp.bottom).offset(kScaleWidth(12))
-            make.width.equalTo(kScaleWidth(28))
+
+        nameLabel.snp.makeConstraints { make in
+            make.left.equalTo(countryImage.snp.right).offset(kScaleWidth(4))
+            make.centerY.equalTo(countryImage)
+            make.right.equalToSuperview().offset(-kScaleWidth(12))
         }
-        hotbtn.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(name.snp.bottom).offset(kScaleWidth(12))
-            make.height.equalTo(kScaleWidth(12))
+
+        tagImage.snp.makeConstraints { make in
+            make.left.equalTo(coverImage.snp.right).offset(kScaleWidth(12))
+            make.top.equalTo(countryImage.snp.bottom).offset(kScaleWidth(8))
+            make.size.equalTo(CGSize(width: kScaleWidth(48), height: kScaleWidth(20)))
         }
-        typelb.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(hotbtn.snp.bottom).offset(kScaleWidth(12))
-            make.size.equalTo(CGSize(width: kScaleWidth(36), height: kScaleWidth(20)))
-            make.bottom.lessThanOrEqualToSuperview().offset(-kScaleWidth(12))
+
+        seatView.snp.makeConstraints { make in
+            make.left.equalTo(coverImage.snp.right).offset(kScaleWidth(12))
+            make.bottom.equalToSuperview().offset(-kScaleWidth(12))
+            make.width.equalTo(kScaleWidth(128))
+            make.height.equalTo(kScaleWidth(24))
+        }
+
+        hotButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-kScaleWidth(12))
+            make.centerY.equalTo(seatView)
+            make.height.equalTo(kScaleWidth(24))
         }
     }
 }

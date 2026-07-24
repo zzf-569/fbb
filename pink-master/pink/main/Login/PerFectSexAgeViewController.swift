@@ -173,7 +173,7 @@ class PerFectSexAgeViewController: LMBaseVC {
         UserNetWork.updateUserInfo(gender: gender.rawValue, birthday: selectString).lmrequest {[weak self] _ in
             HUD.hide()
             guard let self = self else { return }
-            self.navigationController?.pushViewController(PerFectNameViewController(), animated: true)
+            self.navigationController?.pushViewController(SetUpProfileViewController(), animated: true)
         } failureBlock: { error in
             HUD.showFailure(error.message)
         }

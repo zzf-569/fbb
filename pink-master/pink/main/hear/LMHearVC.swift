@@ -3,60 +3,8 @@ class LMHearVC: UIViewController, JXSegmentedViewDelegate, JXSegmentedListContai
     var roomList: [RoomItem] = []
     lazy var pagingView = JXSegmentedListContainerView(dataSource: self)
     lazy var segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 48))
-    let dataSource = LMLocalizedSegmentedTitleDataSource()
+    let dataSource = JXSegmentedTitleImageDataSource()
     private var typeList: [HomeTypeItem] = []
-    lazy var headerView: LMHearHeaderView = {
-        let view = LMHearHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: kScaleWidth(241) +  kNavigationBarHeight))
-        view.Callbackblock = {index in
-            switch index {
-            case 0:
-                if let user = UserShared.user {
-                    self.navigationController?.pushViewController(GiftWallViewController(model: user), animated: true)
-                }
-            case 1:
-                self.navigationController?.pushViewController(RankVC(), animated: true)
-            case 2:
-                if self.roomList.count > 0 {
-                    var inde = index - 2
-                    inde = inde < 0 ? 0 : inde
-                    if inde > self.roomList.count - 1{
-                        return
-                    }
-                    RouteService.pushRoom(self.roomList[inde].roomId)
-                }
-            case 3:
-                if self.roomList.count > 0 {
-                    var inde = index - 2
-                    inde = inde < 0 ? 0 : inde
-                    if inde > self.roomList.count - 1{
-                        return
-                    }
-                    RouteService.pushRoom(self.roomList[inde].roomId)
-                }
-            case 4:
-                if self.roomList.count > 0 {
-                    var inde = index - 2
-                    inde = inde < 0 ? 0 : inde
-                    if inde > self.roomList.count - 1{
-                        return
-                    }
-                    RouteService.pushRoom(self.roomList[inde].roomId)
-                }
-            case 5:
-                if self.roomList.count > 0 {
-                    var inde = index - 2
-                    inde = inde < 0 ? 0 : inde
-                    if inde > self.roomList.count - 1{
-                        return
-                    }
-                    RouteService.pushRoom(self.roomList[inde].roomId)
-                }
-            default:
-                break
-            }
-        }
-        return view
-    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -75,10 +23,7 @@ class LMHearVC: UIViewController, JXSegmentedViewDelegate, JXSegmentedListContai
         }
     }
     func setViewSnp() {
-        let bgImage = UIImageView(image: UIImage(named: "hear_bg"))
-        bgImage.frame = self.view.bounds
-        view.addSubview(bgImage)
-        view.addSubview(headerView)
+       
         dataSource.titleNormalFont = lmFontR(16)
         dataSource.titleSelectedFont = lmFontM(16)
         dataSource.titleNormalColor = .textDefaulColor
@@ -94,13 +39,12 @@ class LMHearVC: UIViewController, JXSegmentedViewDelegate, JXSegmentedListContai
         indicator.indicatorColor = lmColorHex("#FF4F7DFF")
         indicator.verticalOffset = 10.0
         segmentedView.indicators = [indicator]
-        pagingView.backgroundColor(.clear)
-        pagingView.listCellBackgroundColor = .clear
+        pagingView.backgroundColor(lmColorHex("#F5F6FA"))
         segmentedView.listContainer = pagingView
         view.addSubview(pagingView)
         view.addSubview(segmentedView)
-        segmentedView.frame = CGRect(x: 0, y: kScaleWidth(241) +  kNavigationBarHeight, width: self.view.width, height: kScaleWidth(56))
-        pagingView.frame = CGRect(x: 0, y: kScaleWidth(241 + 56) +  kNavigationBarHeight, width: self.view.width, height: self.view.height - kScaleWidth(241 + 56) - kTabBarSafeHeight - kTabBarHeight - kNavigationBarHeight)
+        segmentedView.frame = CGRect(x: 0, y: 0, width: self.view.width, height: kScaleWidth(56))
+        pagingView.frame = CGRect(x: 0, y: kScaleWidth(56), width: self.view.width, height: self.view.height - kScaleWidth(56))
     }
     func getHot() {
         set_NetWork.roomTopList(page: 1, size: AppConfig.pageSize).lmrequest { responseModel in
@@ -114,11 +58,13 @@ class LMHearVC: UIViewController, JXSegmentedViewDelegate, JXSegmentedListContai
     }
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> any JXSegmentedListContainerViewListDelegate {
         let view = LMHearPageVC()
-        if index == 0 {
-            view.viewModel.type = 0
-        } else {
-            view.viewModel.type = self.typeList[index - 1].tagId
-        }
+        
         return view
+    }
+}
+
+extension LMHearVC: JXSegmentedListContainerViewListDelegate {
+    func listView() -> UIView {
+        return self.view
     }
 }

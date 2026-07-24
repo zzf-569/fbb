@@ -51,6 +51,8 @@ class MineCollectRoomViewController: LMBaseVC {
     
     // MARK: - 配置子视图
     private func setUISubViews() {
+        backgroundImage = nil
+        
         let BarButtonItem = UIBarButtonItem(customView: editBtn)
         self.navigationItem.rightBarButtonItem = BarButtonItem
         title = "收藏"
