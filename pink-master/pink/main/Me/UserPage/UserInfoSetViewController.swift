@@ -4,62 +4,21 @@ import Qiniu
 class UserInfoSetViewController: LMBaseVC {
     var dataSoure: UsInfoItem = UsInfoItem() {
         didSet {
-            self.avatarView.setDataSoure(rightImage: dataSoure.avatar)
-            self.nickName.setDataSoure(subTitle: dataSoure.nickname)
-            self.sex.setDataSoure(subTitle: dataSoure.gender == 1 ? "男":"女")
-            self.age.setDataSoure(subTitle: dataSoure.birthday.isEmpty ? "未知" : dataSoure.birthday)
-            self.city.setDataSoure(subTitle: dataSoure.city.isEmpty ? "未知" : dataSoure.city)
-            if dataSoure.signature.isEmpty == false {
-                self.sginLabrl.lmtext(dataSoure.signature)
-                    .textColor(.textDefaulColor)
-            } else {
-                self.sginLabrl.lmtext("每个灵魂都有专属引力场～")
-                    .textColor(.textDisColor)
-            }
-            if dataSoure.voiceUrl.isEmpty == true {
-                voiceView.addSubview(addvoicebtn)
-                addvoicebtn.snp.remakeConstraints { make in
-                    make.center.equalToSuperview()
-                    make.size.equalTo(CGSize(width: kScaleWidth(82), height: kScaleWidth(28)))
-                }
-            } else {
-                voiceView.addSubview(addvoicebtn)
-                voiceView.addSubview(voicePlayView)
-                addvoicebtn.lmtitle("重录")
-                addvoicebtn.snp.remakeConstraints { make in
-                    make.centerY.equalToSuperview()
-                    make.right.equalToSuperview().offset(-kScaleWidth(16))
-                    make.size.equalTo(CGSize(width: kScaleWidth(64), height: kScaleWidth(28)))
-                }
-                voicePlayView.snp.makeConstraints { make in
-                    make.left.equalToSuperview().offset(kScaleWidth(16))
-                    make.centerY.equalToSuperview()
-                    make.size.equalTo(CGSize(width: kScaleWidth(83), height: kScaleWidth(28)))
-                }
-            }
-            var acctagList: [String] = []
-            acctagList = dataSoure.userLabel.accomplishmentList.map {$0.labelName}
-            var instagList: [String] = []
-            instagList = dataSoure.userLabel.interestList.map {$0.labelName}
-            var gameList: [String] = []
-            gameList = dataSoure.userLabel.gameList.map {$0.labelName}
-            if acctagList.count > 0 || instagList.count > 0 || gameList.count > 0 {
-                tagView.isHidden = false
-                jyView.isHidden = true
-                editJy.isHidden = false
-                tagView.setDataSoure(acctagList + instagList + gameList)
-            } else {
-                tagView.isHidden = true
-                jyView.isHidden = false
-                editJy.isHidden = true
-            }
-            phoneNumlb.text = "我的照片(\(dataSoure.photoWall.count)/6)"
-            self.collectionView.reloadData()
+            nickName.setDataSoure(subTitle: dataSoure.nickname.isEmpty ? "Nickname" : dataSoure.nickname)
+            sex.setDataSoure(subTitle: dataSoure.gender == 1 ? "Male" : "Female")
+            age.setDataSoure(subTitle: dataSoure.birthday.isEmpty ? "Select" : dataSoure.birthday)
+            city.setDataSoure(subTitle: dataSoure.city.isEmpty ? "Select" : dataSoure.city)
+            sginLabrl.text = dataSoure.signature.isEmpty
+                ? "This person is a bit lazy and left nothing behind"
+                : dataSoure.signature
+            sginLabrl.textColor = dataSoure.signature.isEmpty ? .textDisColor : .textDefaulColor
+            phoneNumlb.text = "Album  (\(dataSoure.photoWall.count)/6)"
+            collectionView.reloadData()
         }
     }
     var isPlayVoice: Bool = false
     lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: kNavigationHeight, width: kScreenWidth, height: kScreenHeight - kNavigationHeight))
+        let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
@@ -72,6 +31,7 @@ class UserInfoSetViewController: LMBaseVC {
     }()
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(target: self, cellTypes: [MineAddPhotoCell.self])
+        collectionView.isScrollEnabled = false
         collectionView.dragInteractionEnabled = true 
         collectionView.reorderingCadence = .fast 
         collectionView.dragDelegate = self
@@ -84,19 +44,17 @@ class UserInfoSetViewController: LMBaseVC {
     }()
     lazy var sginLabrl: UILabel = {
         let lb = UILabel(lmfont: lmFontR(14), textColor: .textDisColor)
-            .lmtext("每个灵魂都有专属引力场～")
+            .lmtext("This person is a bit lazy and left nothing behind")
             .numberOfLines(0)
         return lb
     }()
     lazy var addsginbtn: UIButton = {
-        let btn = UIButton(lmfont: lmFontR(12), titleColor: lmColorHex("#FF4F7DFF"))
-            .image(UIImage(named: "more_pink"))
-            .backgroundColor(lmColorHex("#FF4F7D14"))
-            .lmtitle("去填写")
-            .frame(CGRect(x: 0, y: 0, width: kScaleWidth(70), height: kScaleWidth(28)))
-            .cornerRadius(kScaleWidth(14))
+        let btn = UIButton(lmfont: lmFontR(12), titleColor: lmColorHex("#B9FF63"))
+            .backgroundColor(lmColorHex("#142018"))
+            .lmtitle("Edit")
+            .frame(CGRect(x: 0, y: 0, width: kScaleWidth(44), height: kScaleWidth(28)))
+            .cornerRadius(kScaleWidth(6))
         btn.addTarget(self, action: #selector(turnToSginName), for: .touchUpInside)
-        btn.set_ImageTitleLayout(.imgRight, spacing: 2)
         return btn
     }()
     lazy var addvoicebtn: UIButton = {
@@ -137,19 +95,19 @@ class UserInfoSetViewController: LMBaseVC {
         return view
     }()
     lazy var nickName: LMVerticalView = {
-        let view = LMVerticalView(title: "昵称", type: .lbType, subTitle: dataSoure.nickname)
+        let view = LMVerticalView(title: "Nickname", type: .lbType, subTitle: dataSoure.nickname)
         return view
     }()
     lazy var sex: LMVerticalView = {
-        let view = LMVerticalView(title: "性别", type: .lbType, subTitle: dataSoure.gender == 1 ? "男":"女")
+        let view = LMVerticalView(title: "Gender", type: .lbType, subTitle: dataSoure.gender == 1 ? "Male" : "Female")
         return view
     }()
     lazy var city: LMVerticalView = {
-        let view = LMVerticalView(title: "城市", type: .lbType, subTitle: dataSoure.city)
+        let view = LMVerticalView(title: "Country", type: .lbType, subTitle: dataSoure.city)
         return view
     }()
     lazy var age: LMVerticalView = {
-        let view = LMVerticalView(title: "年龄", type: .lbType, subTitle: dataSoure.birthday)
+        let view = LMVerticalView(title: "Birthday", type: .lbType, subTitle: dataSoure.birthday)
         return view
     }()
     lazy var jyView: UIView = {
@@ -180,148 +138,133 @@ class UserInfoSetViewController: LMBaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setDataSoure()
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "个人资料"
         backgroundImage = nil
-        view.backgroundColor = .white
+        view.backgroundColor = lmColorHex("#F5F6FA")
         setViewSnp()
         configTap()
     }
+
     private func setViewSnp() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(avatarView)
-        scrollView.addSubview(backImageCenter)
-        backImageCenter.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalToSuperview().offset(kScaleWidth(0))
-            make.height.equalTo(kScaleWidth(344))
+        let navigationView = UIView()
+        navigationView.backgroundColor = lmColorHex("#F5F6FA")
+        view.addSubview(navigationView)
+        navigationView.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+            $0.height.equalTo(kNavigationHeight)
         }
+
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.tintColor = lmColorHex("#202620")
+        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        navigationView.addSubview(backButton)
+        backButton.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(12)
+            $0.bottom.equalToSuperview().offset(-4)
+            $0.size.equalTo(40)
+        }
+
+        let titleLabel = UILabel(lmfont: lmFontM(22), textColor: lmColorHex("#171C18"))
+        titleLabel.text = "Edit"
+        titleLabel.textAlignment = .center
+        navigationView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(backButton)
+        }
+
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(navigationView.snp.bottom)
+            $0.left.right.bottom.equalToSuperview()
+        }
+
         scrollView.addSubview(phoneNumlb)
         phoneNumlb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.top.equalToSuperview().offset(kScaleWidth(12))
+            make.left.equalToSuperview().offset(22)
+            make.top.equalToSuperview().offset(8)
         }
-        backImageCenter.addSubview(collectionView)
+
+        collectionView.backgroundColor = .clear
+        scrollView.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalToSuperview().offset(kScaleWidth(56))
+            make.left.right.equalToSuperview().inset(22)
+            make.top.equalTo(phoneNumlb.snp.bottom).offset(12)
+            make.width.equalTo(kScreenWidth - 44)
+            make.height.equalTo(268)
         }
-        let tipslb = UILabel(lmfont: lmFontR(16), textColor: .textDefaulColor)
-        tipslb.text = "我的签名"
-        scrollView.addSubview(tipslb)
-        tipslb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.top.equalTo(collectionView.snp.bottom).offset(kScaleWidth(20))
+
+        let basicsLabel = UILabel(lmfont: lmFontR(16), textColor: lmColorHex("#202620"))
+        basicsLabel.text = "Basics"
+        scrollView.addSubview(basicsLabel)
+        basicsLabel.snp.makeConstraints {
+            $0.left.equalTo(phoneNumlb)
+            $0.top.equalTo(collectionView.snp.bottom).offset(18)
         }
-        let sginView = UIView().backgroundColor(lmColorHex("#F8F8FAFF"))
-            .cornerRadius(12)
-        scrollView.addSubview(sginView)
-        sginView.addSubview(sginLabrl)
-        sginView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalTo(tipslb.snp.bottom).offset(kScaleWidth(8))
-            make.width.equalTo(kScreenWidth - kScaleWidth(40))
-            make.bottom.equalTo(sginLabrl.snp.bottom).offset(kScaleWidth(16))
+
+        [nickName, sex, age, city].forEach {
+            $0.backgroundColor = .white
+            $0.snp.makeConstraints { $0.height.equalTo(50) }
         }
-        sginLabrl.snp.makeConstraints { make in
-            make.left.top.equalToSuperview().offset(kScaleWidth(16))
-            make.right.equalToSuperview().offset(-kScaleWidth(90))
-            make.bottom.equalTo(sginView.snp.bottom).offset(-kScaleWidth(16))
-        }
-        sginView.addSubview(addsginbtn)
-        addsginbtn.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-kScaleWidth(16))
-            make.size.equalTo(CGSize(width: kScaleWidth(70), height: kScaleWidth(28)))
-        }
-        let voicelb = UILabel(lmfont: lmFontR(16), textColor: .textDefaulColor)
-        voicelb.text = "我的声音"
-        scrollView.addSubview(voicelb)
-        voicelb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.top.equalTo(sginView.snp.bottom).offset(kScaleWidth(20))
-        }
-        scrollView.addSubview(voiceView)
-        voiceView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalTo(voicelb.snp.bottom).offset(kScaleWidth(6))
-            make.width.equalTo(kScreenWidth - kScaleWidth(40))
-            make.height.equalTo(kScaleWidth(56))
-        }
-        voiceView.addSubview(addvoicebtn)
-        addvoicebtn.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: kScaleWidth(82), height: kScaleWidth(28)))
-        }
-        let tips = UILabel(lmfont: lmFontR(16), textColor: .textDefaulColor)
-        tips.text = "我的资料"
-        scrollView.addSubview(tips)
-        tips.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.top.equalTo(voiceView.snp.bottom).offset(kScaleWidth(20))
-        }
-        avatarView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(40), height: kScaleWidth(48)))
-        }
-        nickName.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(40), height: kScaleWidth(48)))
-        }
-        sex.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(40), height: kScaleWidth(48)))
-        }
-        city.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(40), height: kScaleWidth(48)))
-        }
-        age.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(40), height: kScaleWidth(48)))
-        }
-        let stackView = UIStackView(arrangedSubviews: [avatarView, nickName, sex, city, age])
-        stackView.backgroundColor = lmColorHex("#F8F8FAFF")
+        let stackView = UIStackView(arrangedSubviews: [nickName, sex, age, city])
+        stackView.backgroundColor = .white
         stackView.spacing = 0
         stackView.distribution = .fill
         stackView.axis = .vertical
-        stackView.set_Border(radius: kScaleWidth(12))
+        stackView.layer.cornerRadius = 13
+        stackView.clipsToBounds = true
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(tips.snp.bottom).offset(kScaleWidth(6))
-            make.left.equalToSuperview().offset(kScaleWidth(16))
-            make.right.equalToSuperview().offset(-kScaleWidth(16))
+            make.top.equalTo(basicsLabel.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(22)
+            make.width.equalTo(kScreenWidth - 44)
         }
-        let jylb = UILabel(lmfont: lmFontR(16), textColor: .textDefaulColor)
-        jylb.text = "我的基因"
-        scrollView.addSubview(jylb)
-        jylb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.top.equalTo(stackView.snp.bottom).offset(kScaleWidth(20))
+
+        let signatureLabel = UILabel(lmfont: lmFontR(16), textColor: lmColorHex("#202620"))
+        signatureLabel.text = "Signature"
+        scrollView.addSubview(signatureLabel)
+        signatureLabel.snp.makeConstraints {
+            $0.left.equalTo(phoneNumlb)
+            $0.top.equalTo(stackView.snp.bottom).offset(18)
         }
-        scrollView.addSubview(editJy)
-        editJy.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-kScaleWidth(20))
-            make.top.equalTo(stackView.snp.bottom).offset(kScaleWidth(20))
+
+        let signatureView = UIView()
+        signatureView.backgroundColor = .white
+        signatureView.layer.cornerRadius = 13
+        scrollView.addSubview(signatureView)
+        signatureView.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(22)
+            $0.top.equalTo(signatureLabel.snp.bottom).offset(10)
+            $0.width.equalTo(kScreenWidth - 44)
+            $0.height.equalTo(58)
+            $0.bottom.equalToSuperview().offset(-(kTabBarSafeHeight + 28))
         }
-        scrollView.addSubview(jyView)
-        jyView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalTo(jylb.snp.bottom).offset(kScaleWidth(6))
-            make.width.equalTo(kScreenWidth - kScaleWidth(40))
-            make.height.equalTo(kScaleWidth(56))
+
+        signatureView.addSubview(sginLabrl)
+        sginLabrl.numberOfLines = 1
+        sginLabrl.lineBreakMode = .byTruncatingTail
+        sginLabrl.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(16)
+            $0.centerY.equalToSuperview()
+            $0.right.equalToSuperview().offset(-72)
         }
-        jyView.addSubview(addjybtn)
-        addjybtn.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: kScaleWidth(138), height: kScaleWidth(28)))
+
+        signatureView.addSubview(addsginbtn)
+        addsginbtn.snp.makeConstraints {
+            $0.right.equalToSuperview().offset(-16)
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(44)
+            $0.height.equalTo(28)
         }
-        scrollView.addSubview(tagView)
-        tagView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalTo(jylb.snp.bottom).offset(kScaleWidth(6))
-            make.width.equalTo(kScreenWidth - kScaleWidth(40))
-            make.height.equalTo(56)
-            make.bottom.equalToSuperview().offset(-kTabBarSafeHeight)
-        }
+    }
+
+    @objc private func backAction() {
+        navigationController?.popViewController(animated: true)
     }
     func setDataSoure() {
         UserShared.getUserInfo {[weak self] in
@@ -332,18 +275,15 @@ class UserInfoSetViewController: LMBaseVC {
         }
     }
     func configTap() {
-        avatarView.addGestureTap { [weak self] _ in
-            self?.uploadAvatar()
-        }
         nickName.addGestureTap { [weak self] _ in
             self?.turnToEditName()
         }
         sex.addGestureTap { [weak self] _ in
             let items = [
-                PickerListModel(title: "小哥哥", value: 1),
-                PickerListModel(title: "小姐姐", value: 2)
+                PickerListModel(title: "Male", value: 1),
+                PickerListModel(title: "Female", value: 2)
             ]
-            let picker = LMPickerVC(theme: .light, title: "选择性别", dataSource: items, cancel: "取消", confirm: "确定") {[weak self] item in
+            let picker = LMPickerVC(theme: .light, title: "Gender", dataSource: items, cancel: "Cancel", confirm: "Confirm") {[weak self] item in
                 guard let item = item else { return }
                 guard let gender = item.value as? Int else { return }
                 HUD.showLoading()
@@ -357,7 +297,7 @@ class UserInfoSetViewController: LMBaseVC {
             picker.show()
         }
         city.addGestureTap { [weak self] _ in
-            let picker = LMCityDataPickerVC(title: "选择城市", pickerType: .city, cancel: "取消", confirm: "确定") {[weak self] string in
+            let picker = LMCityDataPickerVC(title: "Country", pickerType: .city, cancel: "Cancel", confirm: "Confirm") {[weak self] string in
                 guard let city = string else {return}
                 HUD.showLoading()
                 UserNetWork.updateUserInfo(city: city).lmrequest {[weak self] _ in
@@ -372,7 +312,7 @@ class UserInfoSetViewController: LMBaseVC {
             picker.show()
         }
         age.addGestureTap { [weak self] _ in
-            let picker = LMCityDataPickerVC(title: "选择生日", pickerType: .data, cancel: "取消", confirm: "确定") {[weak self] string in
+            let picker = LMCityDataPickerVC(title: "Birthday", pickerType: .data, cancel: "Cancel", confirm: "Confirm") {[weak self] string in
                 guard let birthday = string else {return}
                 HUD.showLoading()
                 UserNetWork.updateUserInfo(birthday: birthday).lmrequest {[weak self] _ in
@@ -606,7 +546,8 @@ extension UserInfoSetViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: kScaleWidth(108), height: kScaleWidth(132))
+        let width = (collectionView.bounds.width - 24) / 3
+        return CGSize(width: width, height: 128)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 0, left: kScaleWidth(0), bottom: 0, right: kScaleWidth(0))

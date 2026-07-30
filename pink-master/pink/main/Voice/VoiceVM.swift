@@ -173,37 +173,46 @@ extension VoiceVM {
         var dataSource: [LMRMMoreSectionModel] = []
         if self.roomItem.role == .host || self.roomItem.role == .owner {
             var items: [LMRMMoreItemModel] = []
-            items.append(LMRMMoreItemModel(type: .pkSet, cellType: .itemW, title: "PK", imageName: "rm_more_pk"))
+            //items.append(LMRMMoreItemModel(type: .pkSet, cellType: .itemW, title: "PK", imageName: "rm_more_pk"))
             if roomItem.roomType == .normal || roomItem.roomType == .party {
                 if isHostSeat(UserShared.user?.userId) {
                 }
             }
-            items.append(LMRMMoreItemModel(type: .waterList, cellType: .itemW, title: "流水", imageName: "rm_more_water"))
+            //items.append(LMRMMoreItemModel(type: .waterList, cellType: .itemW, title: "流水", imageName: "rm_more_water"))
             if self.roomItem.role == .owner {
-                items.append(LMRMMoreItemModel(type: .close, cellType: .itemW, title: "关播", imageName: "rm_more_close"))
+                //items.append(LMRMMoreItemModel(type: .close, cellType: .itemW, title: "关播", imageName: "rm_more_close"))
             }
             dataSource.append(LMRMMoreSectionModel(title: "", dataSource: items))
         }
         var items: [LMRMMoreItemModel] = []
-        items.append(LMRMMoreItemModel(type: .mini, title: "收起", imageName: "rm_more_mini"))
-        items.append(LMRMMoreItemModel(type: .quite, title: "退出", imageName: "rm_more_quite"))
+        items.append(LMRMMoreItemModel(type: .mini, title: "Minimize", imageName: "rm_more_mini"))
+        items.append(LMRMMoreItemModel(type: .quite, title: "Exit", imageName: "rm_more_quite"))
+        items.append(LMRMMoreItemModel(type: .quite, title: "Share", imageName: "rm_more_share"))
+
         if getMuteState() {
-            items.append(LMRMMoreItemModel(type: .muteOn, title: "开启中", imageName: "rm_more_mute"))
+            items.append(LMRMMoreItemModel(type: .muteOn, title: "Voice On", imageName: "rm_more_mute"))
         } else {
-            items.append(LMRMMoreItemModel(type: .muteOn, title: "关闭中", imageName: "rm_more_mute_s"))
+            items.append(LMRMMoreItemModel(type: .muteOn, title: "Voice Off", imageName: "rm_more_mute_s"))
         }
         if getAnimationState() {
-            items.append(LMRMMoreItemModel(type: .aniSet, title: "打开动效", imageName: "rm_more_animation"))
+            items.append(LMRMMoreItemModel(type: .aniSet, title: "Effect On", imageName: "rm_more_animation"))
         } else {
-            items.append(LMRMMoreItemModel(type: .aniSet, title: "关闭动效", imageName: "rm_more_animation_s"))
+            items.append(LMRMMoreItemModel(type: .aniSet, title: "Effect Off", imageName: "rm_more_animation_s"))
         }
-        items.append(LMRMMoreItemModel(type: .clearChat, title: "清屏", imageName: "rm_more_clear"))
+        //items.append(LMRMMoreItemModel(type: .clearChat, title: "清屏", imageName: "rm_more_clear"))
         dataSource.append(LMRMMoreSectionModel(title: "", dataSource: items))
         if self.roomItem.role == .host || self.roomItem.role == .owner {
             var otheritems: [LMRMMoreItemModel] = []
-            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "管理员", imageName: "rm_more_role"))
-            otheritems.append(LMRMMoreItemModel(type: .bid, cellType: .vertical, title: "禁言用户", imageName: "rm_more_bid"))
-            otheritems.append(LMRMMoreItemModel(type: .clearStar, cellType: .vertical, title: "清空心动值", imageName: "rm_more_clearValue"))
+            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "Mic Mode", imageName: "rm_more_micType"))
+            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "Open All Mic", imageName: "rm_more_openMic"))
+            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "Set Password", imageName: "rm_more_psw"))
+
+            
+            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "Room Admin", imageName: "rm_more_role"))
+            otheritems.append(LMRMMoreItemModel(type: .role, cellType: .vertical, title: "Room settings", imageName: "rm_more_set"))
+
+//            otheritems.append(LMRMMoreItemModel(type: .bid, cellType: .vertical, title: "禁言用户", imageName: "rm_more_bid"))
+//            otheritems.append(LMRMMoreItemModel(type: .clearStar, cellType: .vertical, title: "清空心动值", imageName: "rm_more_clearValue"))
             dataSource.append(LMRMMoreSectionModel(title: "", dataSource: otheritems))
         }
         dataSource.append(LMRMMoreSectionModel(title: "", dataSource: [LMRMMoreItemModel(type: .report, cellType: .vertical, title: "举报", imageName: "rm_more_report")]))

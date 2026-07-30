@@ -499,6 +499,18 @@ extension VoiceVC {
             }
         }
     }
+    
+    func getOnlineUser() {
+        RoomNetWork.userList(roomId:roomId).lmrequest { [weak self] responseModel in
+             guard let self = self else { return }
+             let userList = (responseModel.data as? [String: Any])?["userList"]
+             guard let list = [UsInfoItem].deserialize(from: userList as? [Any]) else { return }
+            self.roomView.topView.onlineView.setDataSource(list)
+         } failureBlock: {  error in
+            
+         }
+    }
+    
     func updateBanner() {
         self.viewModel.request(set_NetWork.banner(scene: 5) ) { [weak self] responseModel in
             guard let self = self else { return }

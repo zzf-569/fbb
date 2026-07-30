@@ -21,7 +21,7 @@ class LMRMMoreVerCell: BaseCollectionViewCell {
         return imv
     }()
     private lazy var titleLab: UILabel = {
-        let lb = UILabel(lmfont: lmFontF(12), textColor: lmColorHex("#FFFFFF"))
+        let lb = UILabel(lmfont: lmFontF(16), textColor: lmColorHex("#192218"))
             .textAlignment(.center)
         return lb
     }()
@@ -39,7 +39,7 @@ class LMRMMoreVerCell: BaseCollectionViewCell {
 }
 private extension LMRMMoreVerCell {
     func setViewSnp() {
-        contentView.backgroundColor(lmColorHex("#FFFFFF14"))
+        contentView.backgroundColor(lmColorHex("#192218", alpha: 0.04))
         contentView.addSubview(titydmageView)
         contentView.addSubview(titleLab)
         contentView.addSubview(moreImage)

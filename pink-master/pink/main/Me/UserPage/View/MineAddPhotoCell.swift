@@ -4,12 +4,14 @@ protocol MineAddPhotoCellDelegate: NSObjectProtocol {
 }
 class MineAddPhotoCell: UICollectionViewCell {
     weak var delegate: MineAddPhotoCellDelegate?
+    private let dashedBorder = CAShapeLayer()
     lazy var imv: UIButton = {
         let iamgeV = UIButton()
-        iamgeV.image(UIImage(named: "cm_whiteAddImage"))
+        iamgeV.setImage(UIImage(systemName: "plus"), for: .normal)
+        iamgeV.tintColor = lmColorHex("#252B26")
         iamgeV.imageView?.contentMode = .scaleAspectFill
-        iamgeV.backgroundColor(lmColorHex("#2B313D0A"))
-        iamgeV.cornerRadius(8, borderColor: lmColorHex("#2B313D29"), borderWidth: 0.5)
+        iamgeV.backgroundColor(.white)
+        iamgeV.cornerRadius(8)
         iamgeV.isUserInteractionEnabled = false
         return iamgeV
     }()
@@ -21,7 +23,8 @@ class MineAddPhotoCell: UICollectionViewCell {
     var image: photoWallModel? {
         didSet {
             guard let url = image?.url else {
-                imv.image(UIImage(named: "cm_whiteAddImage"))
+                imv.setImage(UIImage(systemName: "plus"), for: .normal)
+                imv.tintColor = lmColorHex("#252B26")
                 close.isHidden = true
                 return
             }
@@ -34,12 +37,23 @@ class MineAddPhotoCell: UICollectionViewCell {
         setViewSnp()
         setDataSoure()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        dashedBorder.frame = bounds
+        dashedBorder.path = UIBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), cornerRadius: 8).cgPath
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     private func setViewSnp() {
+        dashedBorder.strokeColor = lmColorHex("#B7BBB8").cgColor
+        dashedBorder.fillColor = UIColor.clear.cgColor
+        dashedBorder.lineDashPattern = [7, 5]
+        dashedBorder.lineWidth = 1
         addSubview(imv)
         addSubview(close)
+        layer.addSublayer(dashedBorder)
         imv.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

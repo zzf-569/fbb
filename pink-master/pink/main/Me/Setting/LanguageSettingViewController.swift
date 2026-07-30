@@ -1,71 +1,66 @@
 import UIKit
 
-class LanguageSettingViewController: LMBaseVC {
-    private var itemViews: [AppLanguage: LMVerticalView] = [:]
-
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
-    }()
+final class LanguageSettingViewController: LMBaseVC {
+    private var itemViews: [AppLanguage: UIView] = [:]
+    private let saveButton = UIButton(type: .custom)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "语言设置"
+        title = "Language Settings"
         backgroundImage = nil
-        view.backgroundColor = .white
-        setViewSnp()
+        view.backgroundColor = lmColorHex("#F5F6FA")
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitleColor(lmColorHex("#8CFF15"), for: .normal)
+        saveButton.titleLabel?.font = lmFontM(11)
+        saveButton.backgroundColor = lmColorHex("#172019")
+        saveButton.layer.cornerRadius = 5
+        saveButton.frame = CGRect(x: 0, y: 0, width: 56, height: 28)
+        saveButton.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
+        buildView()
         reloadLanguageState()
     }
-}
 
-private extension LanguageSettingViewController {
-    func setViewSnp() {
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(kNavigationHeight)
-            make.left.right.bottom.equalToSuperview()
-        }
+    private func buildView() {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = 12
+        view.addSubview(card)
+        card.snp.makeConstraints { $0.left.right.equalToSuperview().inset(16); $0.top.equalToSuperview().offset(kNavigationHeight + 12); $0.height.equalTo(CGFloat(AppLanguage.allCases.count) * 56) }
 
-        var previousView: UIView?
-        for language in AppLanguage.allCases {
-            let itemView = LMVerticalView(title: language.displayName, type: .lbType)
-                .backgroundColor(.white)
-            itemView.addGestureTap { [weak self] _ in
-                self?.selectLanguage(language)
-            }
-            scrollView.addSubview(itemView)
-            itemViews[language] = itemView
-
-            itemView.snp.makeConstraints { make in
-                make.left.equalToSuperview().offset(kScaleWidth(16))
-                make.width.equalTo(kScreenWidth - kScaleWidth(32))
-                make.height.equalTo(kScaleWidth(56))
-                if let previousView = previousView {
-                    make.top.equalTo(previousView.snp.bottom)
-                } else {
-                    make.top.equalToSuperview().offset(kScaleWidth(12))
-                }
-                if language == AppLanguage.allCases.last {
-                    make.bottom.equalToSuperview()
-                }
-            }
-            previousView = itemView
+        for (index, language) in AppLanguage.allCases.enumerated() {
+            let row = UIControl()
+            row.addTarget(self, action: #selector(languageTapped(_:)), for: .touchUpInside)
+            row.tag = index
+            card.addSubview(row)
+            row.snp.makeConstraints { $0.left.right.equalToSuperview(); $0.top.equalToSuperview().offset(CGFloat(index) * 56); $0.height.equalTo(56) }
+            let label = UILabel(lmfont: lmFontM(14), textColor: lmColorHex("#172019"))
+            label.text = language.displayName
+            row.addSubview(label)
+            label.snp.makeConstraints { $0.left.equalToSuperview().offset(12); $0.centerY.equalToSuperview() }
+            let check = UILabel(lmfont: lmFontM(18), textColor: lmColorHex("#8CFF15"))
+            check.text = "✓"
+            check.tag = 900
+            row.addSubview(check)
+            check.snp.makeConstraints { $0.right.equalToSuperview().offset(-14); $0.centerY.equalToSuperview() }
+            itemViews[language] = row
         }
     }
 
-    func selectLanguage(_ language: AppLanguage) {
-        AppLanguageManager.shared.setLanguage(language)
+    @objc private func languageTapped(_ sender: UIControl) {
+        guard AppLanguage.allCases.indices.contains(sender.tag) else { return }
+        AppLanguageManager.shared.setLanguage(AppLanguage.allCases[sender.tag])
         reloadLanguageState()
-        title = "语言设置"
-        HUD.showSuccess("设置成功")
     }
 
-    func reloadLanguageState() {
-        let currentLanguage = AppLanguageManager.shared.currentLanguage
+    private func reloadLanguageState() {
+        let current = AppLanguageManager.shared.currentLanguage
         for language in AppLanguage.allCases {
-            itemViews[language]?.setDataSoure(subTitle: language == currentLanguage ? "当前" : "")
+            itemViews[language]?.viewWithTag(900)?.isHidden = language != current
         }
+    }
+
+    @objc private func saveAction() {
+        HUD.showSuccess("Saved")
     }
 }

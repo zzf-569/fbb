@@ -103,6 +103,7 @@ extension VoiceVC {
             self.roomView.showPkInviteinfo(nil)
         }
         self.updateBanner()
+        self.getOnlineUser()
         
     }
     func switchRoom(_ model:RoomItem) {

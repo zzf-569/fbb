@@ -255,12 +255,14 @@ private extension VoiceChatListModel {
         return content
     }
     func configCellHeight() -> Double {
-        let cellWidth = kScreenWidth - 16.0 - 112.0
+        let cellWidth = kScreenWidth - 61.0 - 106.0
         var cellHeight = 0.0
         let userAttributedString = userAbout.value
         let contentAttributedString = content.value
         if self.cellStyle == .notice {
-            let contentSize = contentAttributedString.textSize(width: cellWidth)
+           
+            var contentSize = contentAttributedString.textSize(width: cellWidth)
+            contentSize.height += 46
             self.contentSize = contentSize
             cellHeight += contentSize.height
         }
@@ -269,13 +271,15 @@ private extension VoiceChatListModel {
             cellHeight = 24
             
             let contentWidth = cellWidth - 36.0 - 12.0 - 12.0
-            let contentSize = contentAttributedString.textSize(width: contentWidth)
+            var contentSize = contentAttributedString.textSize(width: contentWidth)
+            contentSize.height += 12
             self.contentSize = contentSize
             cellHeight += contentSize.height
         }
         if self.cellStyle == .join {
-            let contentSize = contentAttributedString.textSize(width: cellWidth)
+            var contentSize = contentAttributedString.textSize(width: cellWidth)
             self.contentSize = contentSize
+            contentSize.height += 46
             cellHeight += contentSize.height
         }
         if self.cellStyle == .emoji {

@@ -13,8 +13,11 @@ class BlackLiskViewController: LMBaseVC {
         return tableView
     }()
     lazy var editbtn: UIButton = {
-        let btn = UIButton(image: UIImage(named: "black_edit"), target: self, action: #selector(editbtnClick))
-            .titleColor(lmColorHex("#2B313D"))
+        let btn = UIButton(lmfont: lmFontM(11), titleColor: lmColorHex("#8CFF15"), target: self, action: #selector(editbtnClick))
+        btn.backgroundColor = lmColorHex("#172019")
+        btn.cornerRadius(5)
+        btn.lmtitle("Edit")
+        btn.frame = CGRect(x: 0, y: 0, width: 54, height: 28)
         return btn
     }()
     override func viewDidLoad() {
@@ -23,9 +26,9 @@ class BlackLiskViewController: LMBaseVC {
         addRefresh()
     }
     private func setViewSnp() {
-        title = "黑名单"
+        title = "Blocklist"
         backgroundImage = nil
-        view.backgroundColor = .white
+        view.backgroundColor = lmColorHex("#F5F6FA")
         let BarbtnItem = UIBarButtonItem(customView: editbtn)
         self.navigationItem.rightBarButtonItem = BarbtnItem
         view.addSubview(tableView)
@@ -51,11 +54,9 @@ class BlackLiskViewController: LMBaseVC {
     @objc func editbtnClick() {
         isEdit = !isEdit
         if isEdit == true {
-            editbtn.setImage(nil, for: .normal)
             editbtn.setTitle("保存", for: .normal)
         } else {
-            editbtn.setImage(UIImage(named: "black_edit"), for: .normal)
-            editbtn.setTitle("", for: .normal)
+            editbtn.setTitle("Edit", for: .normal)
         }
         let BarbtnItem = UIBarButtonItem(customView: editbtn)
         self.navigationItem.rightBarButtonItem = BarbtnItem

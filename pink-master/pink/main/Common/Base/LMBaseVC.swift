@@ -7,9 +7,7 @@ class LMBaseVC: UIViewController {
     }()
     var backgroundImage: UIImage? {
         didSet {
-            if backgroundImage != nil{
-                backgroundimv.image = backgroundImage
-            }
+            backgroundimv.image = backgroundImage
         }
     }
     private lazy var backgroundimv: UIImageView = {

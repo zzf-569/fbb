@@ -4923,15 +4923,27 @@ struct _R {
     }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 33 images.
+  /// This `_R.image` struct is generated, and contains static references to 84 images.
   struct image {
     let bundle: Foundation.Bundle
+
+    /// Image `agency`.
+    var agency: RswiftResources.ImageResource { .init(name: "agency", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `backicon`.
     var backicon: RswiftResources.ImageResource { .init(name: "backicon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `backpack`.
+    var backpack: RswiftResources.ImageResource { .init(name: "backpack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `base_bg`.
     var base_bg: RswiftResources.ImageResource { .init(name: "base_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `coins_bg`.
+    var coins_bg: RswiftResources.ImageResource { .init(name: "coins_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `go_vip`.
+    var go_vip: RswiftResources.ImageResource { .init(name: "go_vip", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `home_left`.
     var home_left: RswiftResources.ImageResource { .init(name: "home_left", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -4945,8 +4957,26 @@ struct _R {
     /// Image `home_right_sele`.
     var home_right_sele: RswiftResources.ImageResource { .init(name: "home_right_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `host`.
+    var host: RswiftResources.ImageResource { .init(name: "host", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `host_bg`.
+    var host_bg: RswiftResources.ImageResource { .init(name: "host_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `icon_coins`.
+    var icon_coins: RswiftResources.ImageResource { .init(name: "icon_coins", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `icon_points`.
+    var icon_points: RswiftResources.ImageResource { .init(name: "icon_points", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `invite`.
+    var invite: RswiftResources.ImageResource { .init(name: "invite", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `launch_bg`.
     var launch_bg: RswiftResources.ImageResource { .init(name: "launch_bg", path: [], bundle: bundle, locale: LocaleReference.none, onDemandResourceTags: nil) }
+
+    /// Image `level`.
+    var level: RswiftResources.ImageResource { .init(name: "level", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `login_apple`.
     var login_apple: RswiftResources.ImageResource { .init(name: "login_apple", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -4972,6 +5002,9 @@ struct _R {
     /// Image `man_sele`.
     var man_sele: RswiftResources.ImageResource { .init(name: "man_sele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `medal`.
+    var medal: RswiftResources.ImageResource { .init(name: "medal", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `more_down`.
     var more_down: RswiftResources.ImageResource { .init(name: "more_down", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -4984,6 +5017,114 @@ struct _R {
     /// Image `msg_system`.
     var msg_system: RswiftResources.ImageResource { .init(name: "msg_system", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `open_vip`.
+    var open_vip: RswiftResources.ImageResource { .init(name: "open_vip", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `points_bg`.
+    var points_bg: RswiftResources.ImageResource { .init(name: "points_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_bottom_emg`.
+    var rm_bottom_emg: RswiftResources.ImageResource { .init(name: "rm_bottom_emg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_bottom_game`.
+    var rm_bottom_game: RswiftResources.ImageResource { .init(name: "rm_bottom_game", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_bottom_gift`.
+    var rm_bottom_gift: RswiftResources.ImageResource { .init(name: "rm_bottom_gift", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_bottom_message`.
+    var rm_bottom_message: RswiftResources.ImageResource { .init(name: "rm_bottom_message", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_bottom_mute`.
+    var rm_bottom_mute: RswiftResources.ImageResource { .init(name: "rm_bottom_mute", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_giftCard_shop`.
+    var rm_giftCard_shop: RswiftResources.ImageResource { .init(name: "rm_giftCard_shop", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_animation`.
+    var rm_more_animation: RswiftResources.ImageResource { .init(name: "rm_more_animation", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_animation_s`.
+    var rm_more_animation_s: RswiftResources.ImageResource { .init(name: "rm_more_animation_s", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_micType`.
+    var rm_more_micType: RswiftResources.ImageResource { .init(name: "rm_more_micType", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_mini`.
+    var rm_more_mini: RswiftResources.ImageResource { .init(name: "rm_more_mini", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_mute`.
+    var rm_more_mute: RswiftResources.ImageResource { .init(name: "rm_more_mute", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_mute_s`.
+    var rm_more_mute_s: RswiftResources.ImageResource { .init(name: "rm_more_mute_s", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_openMic`.
+    var rm_more_openMic: RswiftResources.ImageResource { .init(name: "rm_more_openMic", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_psw`.
+    var rm_more_psw: RswiftResources.ImageResource { .init(name: "rm_more_psw", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_quite`.
+    var rm_more_quite: RswiftResources.ImageResource { .init(name: "rm_more_quite", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_report`.
+    var rm_more_report: RswiftResources.ImageResource { .init(name: "rm_more_report", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_right`.
+    var rm_more_right: RswiftResources.ImageResource { .init(name: "rm_more_right", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_role`.
+    var rm_more_role: RswiftResources.ImageResource { .init(name: "rm_more_role", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_set`.
+    var rm_more_set: RswiftResources.ImageResource { .init(name: "rm_more_set", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_more_share`.
+    var rm_more_share: RswiftResources.ImageResource { .init(name: "rm_more_share", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_normal_bg`.
+    var rm_normal_bg: RswiftResources.ImageResource { .init(name: "rm_normal_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_seat`.
+    var rm_seat: RswiftResources.ImageResource { .init(name: "rm_seat", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_seat_boss`.
+    var rm_seat_boss: RswiftResources.ImageResource { .init(name: "rm_seat_boss", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_seat_lock`.
+    var rm_seat_lock: RswiftResources.ImageResource { .init(name: "rm_seat_lock", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_seat_sequence_mic_n`.
+    var rm_seat_sequence_mic_n: RswiftResources.ImageResource { .init(name: "rm_seat_sequence_mic_n", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_topClose`.
+    var rm_topClose: RswiftResources.ImageResource { .init(name: "rm_topClose", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_topShare`.
+    var rm_topShare: RswiftResources.ImageResource { .init(name: "rm_topShare", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_topcollect`.
+    var rm_topcollect: RswiftResources.ImageResource { .init(name: "rm_topcollect", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_tophot`.
+    var rm_tophot: RswiftResources.ImageResource { .init(name: "rm_tophot", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `rm_topmore`.
+    var rm_topmore: RswiftResources.ImageResource { .init(name: "rm_topmore", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `room_msg_d`.
+    var room_msg_d: RswiftResources.ImageResource { .init(name: "room_msg_d", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `room_msg_noti`.
+    var room_msg_noti: RswiftResources.ImageResource { .init(name: "room_msg_noti", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `seller`.
+    var seller: RswiftResources.ImageResource { .init(name: "seller", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `setting`.
+    var setting: RswiftResources.ImageResource { .init(name: "setting", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `sex_nomor`.
     var sex_nomor: RswiftResources.ImageResource { .init(name: "sex_nomor", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -4995,6 +5136,12 @@ struct _R {
 
     /// Image `sex_unkonw`.
     var sex_unkonw: RswiftResources.ImageResource { .init(name: "sex_unkonw", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `store`.
+    var store: RswiftResources.ImageResource { .init(name: "store", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `support`.
+    var support: RswiftResources.ImageResource { .init(name: "support", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `tabbar_home`.
     var tabbar_home: RswiftResources.ImageResource { .init(name: "tabbar_home", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -5014,11 +5161,17 @@ struct _R {
     /// Image `tabbar_msgsele`.
     var tabbar_msgsele: RswiftResources.ImageResource { .init(name: "tabbar_msgsele", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `task`.
+    var task: RswiftResources.ImageResource { .init(name: "task", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `textF_left`.
     var textF_left: RswiftResources.ImageResource { .init(name: "textF_left", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `textF_right`.
     var textF_right: RswiftResources.ImageResource { .init(name: "textF_right", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `vipcard_bg`.
+    var vipcard_bg: RswiftResources.ImageResource { .init(name: "vipcard_bg", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `women`.
     var women: RswiftResources.ImageResource { .init(name: "women", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

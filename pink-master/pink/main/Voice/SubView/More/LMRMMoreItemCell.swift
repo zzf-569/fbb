@@ -12,7 +12,7 @@ class LMRMMoreItemCell: BaseCollectionViewCell {
         return imv
     }()
     private lazy var titleLab: UILabel = {
-        let lb = UILabel(lmfont: lmFontF(12), textColor: lmColorHex("#FFFFFF", alpha: 0.4))
+        let lb = UILabel(lmfont: lmFontF(12), textColor: lmColorHex("#192218"))
             .textAlignment(.center)
         return lb
     }()

@@ -34,10 +34,45 @@ class LMHomeViewController: LMBaseVC {
         segmentedView.delegate = self
         segmentedView.listContainer = pagingView
 
+        let search = UIControl()
+        search.backgroundColor = .white
+        search.layer.cornerRadius = 20
+        search.addTarget(self, action: #selector(searchAction), for: .touchUpInside)
+        view.addSubview(search)
+        search.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(218)
+            $0.top.equalToSuperview().offset(kStatusBarHeight + 4)
+            $0.width.equalTo(108)
+            $0.height.equalTo(40)
+        }
+        let searchIcon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        searchIcon.tintColor = lmColorHex("#A0A6A1")
+        search.addSubview(searchIcon)
+        searchIcon.snp.makeConstraints { $0.left.equalToSuperview().offset(12); $0.centerY.equalToSuperview(); $0.size.equalTo(18) }
+        let searchLabel = UILabel(lmfont: lmFontR(14), textColor: lmColorHex("#A0A6A1"))
+        searchLabel.text = "Search"
+        search.addSubview(searchLabel)
+        searchLabel.snp.makeConstraints { $0.left.equalTo(searchIcon.snp.right).offset(5); $0.centerY.equalToSuperview() }
+
+        let gift = UIButton(type: .custom)
+        gift.setTitle("🎁", for: .normal)
+        gift.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        gift.addTarget(self, action: #selector(giftAction), for: .touchUpInside)
+        view.addSubview(gift)
+        gift.snp.makeConstraints { $0.right.equalToSuperview().offset(-14); $0.centerY.equalTo(search); $0.size.equalTo(42) }
+
         view.addSubview(pagingView)
         view.addSubview(segmentedView)
         segmentedView.frame = CGRect(x: kScaleWidth(12), y: kStatusBarHeight, width: self.view.width, height: kScaleWidth(48))
-        pagingView.frame = CGRect(x: 0, y: kNavigationBarHeight + kScaleWidth(48), width: self.view.width, height: self.view.height - kTabBarSafeHeight - kTabBarHeight - kNavigationHeight - kScaleWidth(48))
+        pagingView.frame = CGRect(x: 0, y: kNavigationBarHeight + kScaleWidth(48), width: self.view.width, height: self.view.height - kTabBarSafeHeight - kTabBarHeight - kNavigationHeight)
+    }
+
+    @objc private func searchAction() {
+        navigationController?.pushViewController(SearchPageViewController(), animated: true)
+    }
+
+    @objc private func giftAction() {
+        HUD.show("Coming soon")
     }
 
 }
@@ -50,6 +85,6 @@ extension LMHomeViewController: JXSegmentedViewDelegate, JXSegmentedListContaine
         if index == 0 {
             return MineCollectRoomViewController()
         }
-        return LMHearVC()
+        return LMHearPageVC()
     }
 }

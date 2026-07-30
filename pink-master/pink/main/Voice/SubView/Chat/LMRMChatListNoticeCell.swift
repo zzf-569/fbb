@@ -1,5 +1,13 @@
 import UIKit
 class LMRMChatListNoticeCell:LMRMChatListBaseCell {
+    
+    lazy var notiTitle: UIButton = {
+        let button = UIButton(image: UIImage(named: "room_msg_noti"))
+        button .setTitle("System", for: .normal)
+        button.setTitleColor(lmColorHex("#FCFF2C"), for: .normal)
+        return button
+    }()
+    
     private lazy var contentlb: UILabel = {
         let lb = UILabel(lmfont: lmFontF(14), textColor: lmColorHex("#FF4F7D"))
             .numberOfLines(0)
@@ -19,9 +27,19 @@ class LMRMChatListNoticeCell:LMRMChatListBaseCell {
 }
 private extension LMRMChatListNoticeCell {
     func setViewSnp() {
-        self.contentView.addSubview(contentlb)
+        
+        backView.addSubview(notiTitle)
+        
+        backView.addSubview(contentlb)
+        
+        notiTitle.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(10)
+            
+        }
+        
         contentlb.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 20.0, right: 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 34, left: 10, bottom: 10.0, right: 10))
         }
     }
 }

@@ -1,60 +1,93 @@
 import UIKit
-import AttributedString
-class RechargeCollectionViewCell: UICollectionViewCell {
+
+final class RechargeCollectionViewCell: UICollectionViewCell {
+    private let coinImageView = UIImageView()
+
     var dataSoure: RechargeItem = RechargeItem() {
         didSet {
-            coinlb.text = "\(dataSoure.productAmount.toString())钻石"
-            pricelb.text = "¥\(dataSoure.price.toString())"
+            coinlb.text = dataSoure.productAmount.formattedWithSeparator
+            pricelb.text = formattedPrice(dataSoure.price)
         }
     }
+
     lazy var coinlb: UILabel = {
-        let lb = UILabel(lmfont: lmFontASHTB(10), textColor: .white)
-        lb.textAlignment(.center)
-        return lb
+        let label = UILabel(lmfont: lmFontM(15), textColor: lmColorHex("#202620"))
+        label.textAlignment = .left
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
+        return label
     }()
+
     lazy var pricelb: UILabel = {
-        let lb = UILabel(lmfont: lmFontASHTB(18), textColor: lmColorHex("#FF4F7D"))
-        lb.textAlignment(.center)
-        return lb
+        let label = UILabel(lmfont: lmFontR(12), textColor: lmColorHex("#777D78"))
+        label.textAlignment = .center
+        return label
     }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViewSnp()
-        setDataSoure()
+        applySelectionStyle()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     private func setViewSnp() {
-        contentView.addSubview(pricelb)
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 14
+        contentView.clipsToBounds = true
+
+        coinImageView.image = UIImage(named: "cm_coin") ?? UIImage(named: "icon_coins")
+        coinImageView.contentMode = .scaleAspectFit
+        contentView.addSubview(coinImageView)
         contentView.addSubview(coinlb)
-        coinlb.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(32)
-            make.height.equalTo(kScaleWidth(14))
+        contentView.addSubview(pricelb)
+
+        coinImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(10)
+            $0.top.equalToSuperview().offset(13)
+            $0.size.equalTo(17)
         }
-        pricelb.snp.makeConstraints { make in
-            make.centerX.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-kScaleWidth(24))
-            make.height.equalTo(kScaleWidth(24))
+        coinlb.snp.makeConstraints {
+            $0.left.equalTo(coinImageView.snp.right).offset(4)
+            $0.right.equalToSuperview().offset(-7)
+            $0.centerY.equalTo(coinImageView)
         }
-        contentView.layoutIfNeeded()
+        pricelb.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(6)
+            $0.top.equalTo(coinImageView.snp.bottom).offset(7)
+            $0.height.equalTo(17)
+        }
     }
-    func setDataSoure() {
+
+    private func formattedPrice(_ price: Int) -> String {
+        guard price > 0 else { return "$0.99" }
+        if price >= 100 {
+            return String(format: "$%.2f", Double(price) / 100)
+        }
+        return String(format: "$%.2f", max(Double(price) - 0.01, 0.99))
     }
+
     var isSelectedItem: Bool? {
         didSet {
-            if isSelectedItem == true {
-                pricelb.textColor(.white)
-                coinlb.textColor(.white)
-                contentView.backgroundColor = lmColorHex("#FF4F7D")
-                contentView.cornerRadius(12)
-            } else {
-                pricelb.textColor(lmColorHex("#FF4F7DFF"))
-                coinlb.textColor(lmColorHex("#FF4F7DFF"))
-                contentView.backgroundColor = lmColorHex("#FF4F7D14")
-                contentView.cornerRadius(12)
-            }
+            applySelectionStyle()
         }
+    }
+
+    private func applySelectionStyle() {
+        let selected = isSelectedItem == true
+        contentView.backgroundColor = selected ? lmColorHex("#142018") : .white
+        coinlb.textColor = selected ? lmColorHex("#B9FF47") : lmColorHex("#202620")
+        pricelb.textColor = selected ? lmColorHex("#AEB5AF") : lmColorHex("#777D78")
+    }
+}
+
+private extension Int {
+    var formattedWithSeparator: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: self)) ?? toString()
     }
 }

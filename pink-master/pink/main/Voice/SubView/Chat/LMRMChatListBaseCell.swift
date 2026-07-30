@@ -5,10 +5,20 @@ protocol LMRMChatListCellDelegate: NSObjectProtocol {
     func dg_welcomeClick(userId: String)
 }
 class LMRMChatListBaseCell: LMBaseTableViewCell {
+    lazy var backView: UIView = {
+        let view = UIView().backgroundColor(lmColorHex("#FFFFFF", alpha: 0.08))
+        view.set_Border(radius: 8)
+        return view
+    }()
     weak var delegate:LMRMChatListCellDelegate?
     var dataSoure:VoiceChatListModel?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.addSubview(backView)
+        backView.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-12)
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

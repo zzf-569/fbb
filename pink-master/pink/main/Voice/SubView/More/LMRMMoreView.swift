@@ -30,12 +30,8 @@ class LMRMMoreView: UIView {
     }()
     private lazy var bdView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: self.height, width: self.width, height: kScaleWidth(640)))
-        let effec = UIBlurEffect(style: .dark)
-        let blurView = UIVisualEffectView(effect: effec)
-        view.addSubview(blurView)
-        blurView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        view.backgroundColor(.white)
+       
         return view
     }()
     private lazy var collectionView: UICollectionView = {
@@ -117,7 +113,7 @@ extension LMRMMoreView: UICollectionViewDataSource & UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let sectionModel = self.dataSource[section]
         if sectionModel.dataSource[0].cellType == .imageItem {
-            return UIEdgeInsets(top: 12, left: 16, bottom: 8, right: 16)
+            return UIEdgeInsets(top: 20, left: 20, bottom: 8, right: 20)
         }
         if sectionModel.dataSource[0].cellType == .vertical {
             return UIEdgeInsets(top: 0, left: kScaleWidth(20), bottom: 0, right: kScaleWidth(20))

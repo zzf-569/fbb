@@ -38,7 +38,6 @@ extension VoiceVC: IMServiceDelegate {
                 RTCService.shared.muteMicrophone(true)
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             if viewModel.roomItem.roomType == .dispatch, PDViewModel?.status == .audition {
                 if let userId = user?.userId, let seat = seatList.first(where: { $0.userInfo?.userId == userId }) {
@@ -61,8 +60,7 @@ extension VoiceVC: IMServiceDelegate {
                 RTCService.shared.muteMicrophone(false)
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
-            self.roomView.bottomView.setDataSoure(viewModel)
+             self.roomView.bottomView.setDataSoure(viewModel)
             if viewModel.roomItem.roomType == .dispatch, PDViewModel?.status == .audition {
                 if let userId = user?.userId, let seat = seatList.first(where: { $0.userInfo?.userId == userId }) {
                     if seat.seatIndex != 0, seat.seatIndex != 8 {
@@ -124,7 +122,6 @@ extension VoiceVC: IMServiceDelegate {
                 self.roomView.seatView.set_PkView(viewModel)
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             self.roomView.giftView.set_Seats(viewModel.seats,roomItem: viewModel.roomItem)
             if viewModel.roomItem.roomType == .dispatch {
@@ -149,7 +146,6 @@ extension VoiceVC: IMServiceDelegate {
                 self.roomView.seatView.set_PkView(viewModel)
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             self.roomView.giftView.set_Seats(viewModel.seats,roomItem: viewModel.roomItem)
             if viewModel.roomItem.roomType == .dispatch {
@@ -164,12 +160,10 @@ extension VoiceVC: IMServiceDelegate {
             guard let seatList = [RoomSeatItem].deserialize(from: msgModel.msgDict["seatList"] as? [[String: Any]]) else { return  }
             self.viewModel.roomItem.seatList = seatList
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
         case .unlock:
             guard let seatList = [RoomSeatItem].deserialize(from: msgModel.msgDict["seatList"] as? [[String: Any]]) else { return  }
             self.viewModel.roomItem.seatList = seatList
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
         case .mic_change:
             viewModel.updateSeatSequences { isSuccess, _ in
                 if isSuccess {
@@ -227,7 +221,6 @@ extension VoiceVC: IMServiceDelegate {
                 }
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             self.roomView.giftView.set_Seats(viewModel.seats,roomItem: viewModel.roomItem)
         case .auto_upseat:
@@ -241,7 +234,6 @@ extension VoiceVC: IMServiceDelegate {
                 }
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             self.roomView.giftView.set_Seats(viewModel.seats,roomItem: viewModel.roomItem)
         case .update_rm_dispatch_status:
@@ -260,7 +252,6 @@ extension VoiceVC: IMServiceDelegate {
             viewModel.roomItem.seatList = viewModel.roomItem.seatList
             roomView.set_PkStatus(viewModel, pkViewModel: pkViewModel)
             roomView.seatView.set_Seats(viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
         case .pk_value_change :
             guard let pkModel = RoomPKModel.deserialize(from: msgModel.msgDict["pkInfo"] as? [String: Any]) else { return }
             pkViewModel?.dataSoure = pkModel
@@ -276,7 +267,6 @@ extension VoiceVC: IMServiceDelegate {
                         viewModel.roomItem.seatList[index].seatValue = 0
                     }
                     roomView.seatView.set_Seats(viewModel.seats)
-                    roomView.topView.set_Seats(self.viewModel.seats)
                 }
                 if pkModel.status == .end {
                     pkViewModel?.set_upEndPK()
@@ -305,7 +295,6 @@ extension VoiceVC: IMServiceDelegate {
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
             self.roomView.seatView.set_PkView(self.viewModel)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             
         case .only_hot_value:
             let hotValue = msgModel.msgDict["hotValue"] as? Int ?? 0
@@ -370,7 +359,6 @@ extension VoiceVC: IMServiceDelegate {
                 }
             }
             self.roomView.seatView.set_Seats(self.viewModel.seats)
-            self.roomView.topView.set_Seats(self.viewModel.seats)
             self.roomView.bottomView.setDataSoure(viewModel)
             self.roomView.giftView.set_Seats(viewModel.seats,roomItem: viewModel.roomItem)
             if viewModel.roomItem.roomType == .dispatch {

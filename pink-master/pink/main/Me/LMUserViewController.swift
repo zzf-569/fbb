@@ -56,7 +56,7 @@ final class LMUserViewController: LMBaseVC {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.alwaysBounceVertical = true
         scrollView.backgroundColor = .clear
-        
+
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         scrollView.snp.makeConstraints { $0.edges.equalToSuperview() }
@@ -97,6 +97,10 @@ final class LMUserViewController: LMBaseVC {
             $0.top.equalToSuperview().offset(12)
             $0.centerX.equalToSuperview()
             $0.size.equalTo(92)
+        }
+
+        avatarView.addGestureTap {[weak self] tag in
+            self?.navigationController?.pushViewController(LMUserinfoVC(), animated: true)
         }
 
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
@@ -208,7 +212,8 @@ final class LMUserViewController: LMBaseVC {
         row.snp.makeConstraints { $0.top.equalToSuperview().offset(16); $0.left.right.equalToSuperview().inset(18); $0.height.equalTo(kScaleWidth(36)) }
         for (index, title) in titles.enumerated() {
             let button = actionButton(title: title, image: keys[index])
-            button.addTarget(self, action: #selector(placeholderAction), for: .touchUpInside)
+            button.tag = index
+            button.addTarget(self, action: #selector(quickAction(_:)), for: .touchUpInside)
             row.addArrangedSubview(button)
         }
     }
@@ -254,6 +259,10 @@ final class LMUserViewController: LMBaseVC {
 
     private func wallet(title: String, value: UILabel, asset: String, icon: String) -> UIView {
         let view = UIImageView().image(UIImage(named: asset))
+        if title == "Coins" {
+            view.isUserInteractionEnabled = true
+            view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openRecharge)))
+        }
         view.addSubview(label(title, size: 20, weight: .medium, color: .white))
         let titleLabel = view.subviews.last!
         titleLabel.snp.makeConstraints { $0.left.top.equalToSuperview().inset(16) }
@@ -305,7 +314,15 @@ final class LMUserViewController: LMBaseVC {
     @objc private func backAction() { navigationController?.popViewController(animated: true) }
     @objc private func moreAction() { HUD.show("More") }
     @objc private func openWallet() { navigationController?.pushViewController(WalletViewController(), animated: true) }
+    @objc private func openRecharge() { navigationController?.pushViewController(RechargeViewController(), animated: true) }
     @objc private func placeholderAction() { HUD.show("Coming soon") }
+    @objc private func quickAction(_ sender: UIButton) {
+        if sender.tag == 0 {
+            navigationController?.pushViewController(LMHostCenterViewController(), animated: true)
+        } else {
+            placeholderAction()
+        }
+    }
     @objc private func gridAction(_ sender: UIButton) {
         if sender.tag == 0{
             navigationController?.pushViewController(LMShopVC(), animated: true)

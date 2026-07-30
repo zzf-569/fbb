@@ -64,6 +64,7 @@
 		6B3A872B3010A191005874B1 /* LMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872A3010A191005874B1 /* LMHomeViewController.swift */; };
 		6B3A872D3010AE6A005874B1 /* LMHomeHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872C3010AE6A005874B1 /* LMHomeHotCell.swift */; };
 		6B3A872F3010B178005874B1 /* LMHomeSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A872E3010B178005874B1 /* LMHomeSeatView.swift */; };
+		6B3A873330173784005874B1 /* LMUserinfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A873230173784005874B1 /* LMUserinfoVC.swift */; };
 		872F313F2E43C9DB0088B899 /* RJSwiftMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 872F313E2E43C9DB0088B899 /* RJSwiftMacros */; };
 		872F36852E43CB490088B899 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872F36842E43CB490088B899 /* StoreKit.framework */; };
 		8751B2E12E45EF6A00E91BE8 /* LMSheetTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751B2E02E45EF6A00E91BE8 /* LMSheetTabModel.swift */; };
@@ -255,7 +256,6 @@
 		87B441672E098CE400ACEE26 /* ReportReasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440B52E098CE400ACEE26 /* ReportReasonView.swift */; };
 		87B441682E098CE400ACEE26 /* LMVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4400F2E098CE400ACEE26 /* LMVerticalView.swift */; };
 		87B441692E098CE400ACEE26 /* UserPagePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440DF2E098CE400ACEE26 /* UserPagePhotoCell.swift */; };
-		87B4416A2E098CE400ACEE26 /* ZodiacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441422E098CE400ACEE26 /* ZodiacViewController.swift */; };
 		87B4416B2E098CE400ACEE26 /* LimitsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B43FEF2E098CE400ACEE26 /* LimitsItem.swift */; };
 		87B4416C2E098CE400ACEE26 /* LMBageRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440A62E098CE400ACEE26 /* LMBageRecordVC.swift */; };
 		87B4416D2E098CE400ACEE26 /* ShopListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440CC2E098CE400ACEE26 /* ShopListViewCell.swift */; };
@@ -268,11 +268,9 @@
 		87B441762E098CE400ACEE26 /* ReportImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440B22E098CE400ACEE26 /* ReportImageView.swift */; };
 		87B441772E098CE400ACEE26 /* IMMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4411B2E098CE400ACEE26 /* IMMessageType.swift */; };
 		87B441792E098CE400ACEE26 /* IMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4411C2E098CE400ACEE26 /* IMService.swift */; };
-		87B4417A2E098CE400ACEE26 /* LMUserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441082E098CE400ACEE26 /* LMUserHeaderView.swift */; };
 		87B4417C2E098CE400ACEE26 /* GiftWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440982E098CE400ACEE26 /* GiftWallHeaderView.swift */; };
 		87B4417D2E098CE400ACEE26 /* MineFansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440AE2E098CE400ACEE26 /* MineFansCell.swift */; };
 		87B4417E2E098CE400ACEE26 /* LMSexAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440122E098CE400ACEE26 /* LMSexAgeView.swift */; };
-		87B441802E098CE400ACEE26 /* ZodiacTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441412E098CE400ACEE26 /* ZodiacTableViewCell.swift */; };
 		87B441812E098CE400ACEE26 /* GiftWallPageSecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4409B2E098CE400ACEE26 /* GiftWallPageSecView.swift */; };
 		87B441842E098CE400ACEE26 /* LMBagePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440A42E098CE400ACEE26 /* LMBagePageVC.swift */; };
 		87B441872E098CE400ACEE26 /* GuildNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441212E098CE400ACEE26 /* GuildNetWork.swift */; };
@@ -304,9 +302,12 @@
 		87B441AD2E098CE400ACEE26 /* ConversationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B43FE82E098CE400ACEE26 /* ConversationListItem.swift */; };
 		87B441AE2E098CE400ACEE26 /* MineFansFolllowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440AF2E098CE400ACEE26 /* MineFansFolllowViewController.swift */; };
 		87B441AF2E098CE400ACEE26 /* LMAddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4400D2E098CE400ACEE26 /* LMAddPhotoView.swift */; };
+		D37989E02F098CE400ACEE26 /* LMUserAvatarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37989DF2F098CE400ACEE26 /* LMUserAvatarGroupView.swift */; };
 		87B441B02E098CE400ACEE26 /* SkillItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B43FF52E098CE400ACEE26 /* SkillItem.swift */; };
 		87B441B12E098CE400ACEE26 /* LanguageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440C82E098CE400ACED0 /* LanguageSettingViewController.swift */; };
 		87B441B22E098CE400ACEE26 /* MineSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440C72E098CE400ACEE26 /* MineSettingViewController.swift */; };
+		A2FA70022C4A000100000001 /* LMAccountManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FA70012C4A000100000001 /* LMAccountManagerViewController.swift */; };
+		A2FA70042C4A000100000001 /* LMMessageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FA70032C4A000100000001 /* LMMessageSettingsViewController.swift */; };
 		87B441B32E098CE400ACEE26 /* MyBankCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440F32E098CE400ACEE26 /* MyBankCardViewController.swift */; };
 		87B441B42E098CE400ACEE26 /* MineUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440EC2E098CE400ACEE26 /* MineUserTableViewCell.swift */; };
 		87B441B52E098CE400ACEE26 /* GiftNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441202E098CE400ACEE26 /* GiftNetWork.swift */; };
@@ -314,7 +315,6 @@
 		87B441B92E098CE400ACEE26 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441062E098CE400ACEE26 /* WalletViewController.swift */; };
 		87B441BB2E098CE400ACEE26 /* ReportImageItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440B12E098CE400ACEE26 /* ReportImageItemCell.swift */; };
 		87B441BF2E098CE400ACEE26 /* MineAccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440C52E098CE400ACEE26 /* MineAccountSafeViewController.swift */; };
-		87B441C12E098CE400ACEE26 /* ZodiacCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4413F2E098CE400ACEE26 /* ZodiacCard.swift */; };
 		87B441C22E098CE400ACEE26 /* UserTimbrePopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440E32E098CE400ACEE26 /* UserTimbrePopViewCell.swift */; };
 		87B441C42E098CE400ACEE26 /* EditSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440E62E098CE400ACEE26 /* EditSignViewController.swift */; };
 		87B441C52E098CE400ACEE26 /* MessageNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441232E098CE400ACEE26 /* MessageNetWork.swift */; };
@@ -389,7 +389,6 @@
 		87B442312E098CE400ACEE26 /* LimitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440C32E098CE400ACEE26 /* LimitsViewController.swift */; };
 		87B442322E098CE400ACEE26 /* ViolationRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440EF2E098CE400ACEE26 /* ViolationRecordViewController.swift */; };
 		87B442342E098CE400ACEE26 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B43FD92E098CE400ACEE26 /* BaseCollectionViewCell.swift */; };
-		87B442362E098CE400ACEE26 /* ZodiacHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441402E098CE400ACEE26 /* ZodiacHeaderView.swift */; };
 		87B442382E098CE400ACEE26 /* UserPageGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440DC2E098CE400ACEE26 /* UserPageGiftListView.swift */; };
 		87B4423A2E098CE400ACEE26 /* LMUserTagV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B440142E098CE400ACEE26 /* LMUserTagV.swift */; };
 		87B4423C2E098CE400ACEE26 /* VersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B441162E098CE400ACEE26 /* VersionModel.swift */; };
@@ -472,8 +471,6 @@
 		87B446582E09911E00ACEE26 /* LMDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B445D62E09911E00ACEE26 /* LMDownloadTask.swift */; };
 		87B446592E09911E00ACEE26 /* Refresh+YD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B445FD2E09911E00ACEE26 /* Refresh+YD.swift */; };
 		87B457BC2E10257500ACEE26 /* xp.pag in Resources */ = {isa = PBXBuildFile; fileRef = 87B457BB2E10257500ACEE26 /* xp.pag */; };
-		87B457BE2E103AE600ACEE26 /* LMZodiacResaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B457BD2E103AE600ACEE26 /* LMZodiacResaultView.swift */; };
-		87B457C02E104AB500ACEE26 /* LMZodiacYDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B457BF2E104AB500ACEE26 /* LMZodiacYDView.swift */; };
 		87CF3A6C2E3D1180003E70C3 /* LMSpeakPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF3A692E3D1180003E70C3 /* LMSpeakPopView.swift */; };
 		87CF3A6D2E3D1180003E70C3 /* LMSpeakCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF3A682E3D1180003E70C3 /* LMSpeakCell.swift */; };
 		87CF3A6E2E3D1180003E70C3 /* LMSpeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF3A6A2E3D1180003E70C3 /* LMSpeakViewController.swift */; };
@@ -491,6 +488,8 @@
 		87F9C0442E38E724007D2962 /* findOrderApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9C0432E38E724007D2962 /* findOrderApi.swift */; };
 		87F9C0462E38E8ED007D2962 /* findOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9C0452E38E8ED007D2962 /* findOrderCell.swift */; };
 		9C9C737BBD0883CF394D2DCB /* Pods_pink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 793C70B9FD1B7EC2CEE4FAAC /* Pods_pink.framework */; };
+		A2FA68322C48D80F9F361039 /* LMHostCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FA68312C48D80F9F361039 /* LMHostCenterViewController.swift */; };
+		C5B1954E479C41FFB2E7E0E4 /* LMHostCenterDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B1954D479C41FFB2E7E0E4 /* LMHostCenterDashboardViewController.swift */; };
 		C90395241FC622D2006F1DC0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395231FC622D2006F1DC0 /* main.swift */; };
 		C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
 		FCB2C7C81F57127800481080 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCB2C7C71F57127800481080 /* InfoPlist.strings */; };
@@ -560,6 +559,7 @@
 		6B3A872A3010A191005874B1 /* LMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeViewController.swift; sourceTree = "<group>"; };
 		6B3A872C3010AE6A005874B1 /* LMHomeHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeHotCell.swift; sourceTree = "<group>"; };
 		6B3A872E3010B178005874B1 /* LMHomeSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHomeSeatView.swift; sourceTree = "<group>"; };
+		6B3A873230173784005874B1 /* LMUserinfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMUserinfoVC.swift; sourceTree = "<group>"; };
 		6B5717B12FDAC2EA00EE0AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		793C70B9FD1B7EC2CEE4FAAC /* Pods_pink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		872F36842E43CB490088B899 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -769,6 +769,7 @@
 		87B440092E098CE400ACEE26 /* LMSheetTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSheetTableVC.swift; sourceTree = "<group>"; };
 		87B4400C2E098CE400ACEE26 /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		87B4400D2E098CE400ACEE26 /* LMAddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMAddPhotoView.swift; sourceTree = "<group>"; };
+		D37989DF2F098CE400ACEE26 /* LMUserAvatarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMUserAvatarGroupView.swift; sourceTree = "<group>"; };
 		87B4400E2E098CE400ACEE26 /* LMScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMScrollView.swift; sourceTree = "<group>"; };
 		87B4400F2E098CE400ACEE26 /* LMVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMVerticalView.swift; sourceTree = "<group>"; };
 		87B440112E098CE400ACEE26 /* LMAuthPopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMAuthPopVC.swift; sourceTree = "<group>"; };
@@ -833,6 +834,8 @@
 		87B440C52E098CE400ACEE26 /* MineAccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineAccountSafeViewController.swift; sourceTree = "<group>"; };
 		87B440C62E098CE400ACEE26 /* MinePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinePhoneViewController.swift; sourceTree = "<group>"; };
 		87B440C72E098CE400ACEE26 /* MineSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSettingViewController.swift; sourceTree = "<group>"; };
+		A2FA70012C4A000100000001 /* LMAccountManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMAccountManagerViewController.swift; sourceTree = "<group>"; };
+		A2FA70032C4A000100000001 /* LMMessageSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMMessageSettingsViewController.swift; sourceTree = "<group>"; };
 		87B440C82E098CE400ACED0 /* LanguageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingViewController.swift; sourceTree = "<group>"; };
 		87B440C92E098CE400ACEE26 /* LMShopBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMShopBalanceView.swift; sourceTree = "<group>"; };
 		87B440CA2E098CE400ACEE26 /* LMShopBuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMShopBuyCell.swift; sourceTree = "<group>"; };
@@ -876,7 +879,6 @@
 		87B441032E098CE400ACEE26 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
 		87B441052E098CE400ACEE26 /* WalletRecordPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRecordPageViewController.swift; sourceTree = "<group>"; };
 		87B441062E098CE400ACEE26 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
-		87B441082E098CE400ACEE26 /* LMUserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMUserHeaderView.swift; sourceTree = "<group>"; };
 		87B441092E098CE400ACEE26 /* LMUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMUserViewController.swift; sourceTree = "<group>"; };
 		87B441132E098CE400ACEE26 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
 		87B441152E098CE400ACEE26 /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
@@ -901,10 +903,6 @@
 		87B441312E098CE400ACEE26 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		87B4413B2E098CE400ACEE26 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		87B4413C2E098CE400ACEE26 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		87B4413F2E098CE400ACEE26 /* ZodiacCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacCard.swift; sourceTree = "<group>"; };
-		87B441402E098CE400ACEE26 /* ZodiacHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacHeaderView.swift; sourceTree = "<group>"; };
-		87B441412E098CE400ACEE26 /* ZodiacTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacTableViewCell.swift; sourceTree = "<group>"; };
-		87B441422E098CE400ACEE26 /* ZodiacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacViewController.swift; sourceTree = "<group>"; };
 		87B441432E098CE400ACEE26 /* ZodiacViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacViewModel.swift; sourceTree = "<group>"; };
 		87B445B92E098D3200ACEE26 /* JingNanBoBoHei-Bold-2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JingNanBoBoHei-Bold-2.ttf"; sourceTree = "<group>"; };
 		87B445BC2E098D4E00ACEE26 /* region_tree_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = region_tree_data.json; sourceTree = "<group>"; };
@@ -970,8 +968,6 @@
 		87B4461B2E09911E00ACEE25 /* JXSegmentedView+LM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JXSegmentedView+LM.swift"; sourceTree = "<group>"; };
 		87B44C622E09959100ACEE26 /* pink-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pink-Bridging-Header.h"; sourceTree = "<group>"; };
 		87B457BB2E10257500ACEE26 /* xp.pag */ = {isa = PBXFileReference; lastKnownFileType = file; path = xp.pag; sourceTree = "<group>"; };
-		87B457BD2E103AE600ACEE26 /* LMZodiacResaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMZodiacResaultView.swift; sourceTree = "<group>"; };
-		87B457BF2E104AB500ACEE26 /* LMZodiacYDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMZodiacYDView.swift; sourceTree = "<group>"; };
 		87CF3A682E3D1180003E70C3 /* LMSpeakCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSpeakCell.swift; sourceTree = "<group>"; };
 		87CF3A692E3D1180003E70C3 /* LMSpeakPopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSpeakPopView.swift; sourceTree = "<group>"; };
 		87CF3A6A2E3D1180003E70C3 /* LMSpeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMSpeakViewController.swift; sourceTree = "<group>"; };
@@ -989,6 +985,8 @@
 		87F9C0432E38E724007D2962 /* findOrderApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findOrderApi.swift; sourceTree = "<group>"; };
 		87F9C0452E38E8ED007D2962 /* findOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findOrderCell.swift; sourceTree = "<group>"; };
 		87F9C3282E3D07E7007D2962 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A2FA68312C48D80F9F361039 /* LMHostCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHostCenterViewController.swift; sourceTree = "<group>"; };
+		C5B1954D479C41FFB2E7E0E4 /* LMHostCenterDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMHostCenterDashboardViewController.swift; sourceTree = "<group>"; };
 		C90395231FC622D2006F1DC0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAppDelegate.swift; sourceTree = "<group>"; };
 		E19FBDD813619872D82A2BDD /* Pods-pink.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pink.staging.xcconfig"; path = "Target Support Files/Pods-pink/Pods-pink.staging.xcconfig"; sourceTree = "<group>"; };
@@ -1755,6 +1753,7 @@
 			children = (
 				87B4400C2E098CE400ACEE26 /* BadgeLabel.swift */,
 				87B4400D2E098CE400ACEE26 /* LMAddPhotoView.swift */,
+				D37989DF2F098CE400ACEE26 /* LMUserAvatarGroupView.swift */,
 				87B4400E2E098CE400ACEE26 /* LMScrollView.swift */,
 				87B4400F2E098CE400ACEE26 /* LMVerticalView.swift */,
 				87B440112E098CE400ACEE26 /* LMAuthPopVC.swift */,
@@ -1958,6 +1957,8 @@
 				87B440C52E098CE400ACEE26 /* MineAccountSafeViewController.swift */,
 				87B440C62E098CE400ACEE26 /* MinePhoneViewController.swift */,
 				87B440C72E098CE400ACEE26 /* MineSettingViewController.swift */,
+				A2FA70012C4A000100000001 /* LMAccountManagerViewController.swift */,
+				A2FA70032C4A000100000001 /* LMMessageSettingsViewController.swift */,
 				87B440C82E098CE400ACED0 /* LanguageSettingViewController.swift */,
 			);
 			path = Setting;
@@ -2023,6 +2024,7 @@
 				87B440E82E098CE400ACEE26 /* MyGeneViewController.swift */,
 				87B440E92E098CE400ACEE26 /* MyVoiceViewController.swift */,
 				87B440EA2E098CE400ACEE26 /* UserInfoSetViewController.swift */,
+				6B3A873230173784005874B1 /* LMUserinfoVC.swift */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -2132,8 +2134,9 @@
 		87B4410A2E098CE400ACEE26 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				87B441082E098CE400ACEE26 /* LMUserHeaderView.swift */,
 				87B441092E098CE400ACEE26 /* LMUserViewController.swift */,
+				A2FA68312C48D80F9F361039 /* LMHostCenterViewController.swift */,
+				C5B1954D479C41FFB2E7E0E4 /* LMHostCenterDashboardViewController.swift */,
 				4CB52E352E3207D5007B2A26 /* family */,
 				4CB52E142E306DCD007B2A26 /* game */,
 				8760977E2E12DD8D00AD10B9 /* Receiving */,
@@ -2271,12 +2274,6 @@
 		87B441442E098CE400ACEE26 /* Zodiac */ = {
 			isa = PBXGroup;
 			children = (
-				87B4413F2E098CE400ACEE26 /* ZodiacCard.swift */,
-				87B441402E098CE400ACEE26 /* ZodiacHeaderView.swift */,
-				87B441412E098CE400ACEE26 /* ZodiacTableViewCell.swift */,
-				87B441422E098CE400ACEE26 /* ZodiacViewController.swift */,
-				87B457BD2E103AE600ACEE26 /* LMZodiacResaultView.swift */,
-				87B457BF2E104AB500ACEE26 /* LMZodiacYDView.swift */,
 			);
 			path = Zodiac;
 			sourceTree = "<group>";
@@ -2856,7 +2853,6 @@
 				87B441672E098CE400ACEE26 /* ReportReasonView.swift in Sources */,
 				87B441682E098CE400ACEE26 /* LMVerticalView.swift in Sources */,
 				87B441692E098CE400ACEE26 /* UserPagePhotoCell.swift in Sources */,
-				87B4416A2E098CE400ACEE26 /* ZodiacViewController.swift in Sources */,
 				87B4416B2E098CE400ACEE26 /* LimitsItem.swift in Sources */,
 				87B4416C2E098CE400ACEE26 /* LMBageRecordVC.swift in Sources */,
 				87B4416D2E098CE400ACEE26 /* ShopListViewCell.swift in Sources */,
@@ -2868,15 +2864,12 @@
 				87B441722E098CE400ACEE26 /* LevelItem.swift in Sources */,
 				87B441732E098CE400ACEE26 /* LMMessageListCell.swift in Sources */,
 				87B441752E098CE400ACEE26 /* StstemOutcomeCell.swift in Sources */,
-				87B457C02E104AB500ACEE26 /* LMZodiacYDView.swift in Sources */,
 				87B441762E098CE400ACEE26 /* ReportImageView.swift in Sources */,
 				87B441772E098CE400ACEE26 /* IMMessageType.swift in Sources */,
 				87B441792E098CE400ACEE26 /* IMService.swift in Sources */,
-				87B4417A2E098CE400ACEE26 /* LMUserHeaderView.swift in Sources */,
 				87B4417C2E098CE400ACEE26 /* GiftWallHeaderView.swift in Sources */,
 				87B4417D2E098CE400ACEE26 /* MineFansCell.swift in Sources */,
 				87B4417E2E098CE400ACEE26 /* LMSexAgeView.swift in Sources */,
-				87B441802E098CE400ACEE26 /* ZodiacTableViewCell.swift in Sources */,
 				87B441812E098CE400ACEE26 /* GiftWallPageSecView.swift in Sources */,
 				4CB52E092E2F3474007B2A26 /* GuildItem.swift in Sources */,
 				87B441842E098CE400ACEE26 /* LMBagePageVC.swift in Sources */,
@@ -3066,9 +3059,12 @@
 				87609CD72E12E5A300AD10B9 /* SkListTableViewCell.swift in Sources */,
 				87B441AE2E098CE400ACEE26 /* MineFansFolllowViewController.swift in Sources */,
 				87B441AF2E098CE400ACEE26 /* LMAddPhotoView.swift in Sources */,
+				D37989E02F098CE400ACEE26 /* LMUserAvatarGroupView.swift in Sources */,
 				87B441B02E098CE400ACEE26 /* SkillItem.swift in Sources */,
 				87B441B12E098CE400ACEE26 /* LanguageSettingViewController.swift in Sources */,
 				87B441B22E098CE400ACEE26 /* MineSettingViewController.swift in Sources */,
+				A2FA70022C4A000100000001 /* LMAccountManagerViewController.swift in Sources */,
+				A2FA70042C4A000100000001 /* LMMessageSettingsViewController.swift in Sources */,
 				87B441B32E098CE400ACEE26 /* MyBankCardViewController.swift in Sources */,
 				87B441B42E098CE400ACEE26 /* MineUserTableViewCell.swift in Sources */,
 				87B441B52E098CE400ACEE26 /* GiftNetWork.swift in Sources */,
@@ -3076,8 +3072,10 @@
 				87B441B92E098CE400ACEE26 /* WalletViewController.swift in Sources */,
 				87B441BB2E098CE400ACEE26 /* ReportImageItemCell.swift in Sources */,
 				87B441BF2E098CE400ACEE26 /* MineAccountSafeViewController.swift in Sources */,
-				87B441C12E098CE400ACEE26 /* ZodiacCard.swift in Sources */,
 				87B441C22E098CE400ACEE26 /* UserTimbrePopViewCell.swift in Sources */,
+				6B3A873330173784005874B1 /* LMUserinfoVC.swift in Sources */,
+				A2FA68322C48D80F9F361039 /* LMHostCenterViewController.swift in Sources */,
+				C5B1954E479C41FFB2E7E0E4 /* LMHostCenterDashboardViewController.swift in Sources */,
 				87B441C42E098CE400ACEE26 /* EditSignViewController.swift in Sources */,
 				87B441C52E098CE400ACEE26 /* MessageNetWork.swift in Sources */,
 				87F9C0462E38E8ED007D2962 /* findOrderCell.swift in Sources */,
@@ -3177,7 +3175,6 @@
 				87B442312E098CE400ACEE26 /* LimitsViewController.swift in Sources */,
 				87B442322E098CE400ACEE26 /* ViolationRecordViewController.swift in Sources */,
 				87B442342E098CE400ACEE26 /* BaseCollectionViewCell.swift in Sources */,
-				87B442362E098CE400ACEE26 /* ZodiacHeaderView.swift in Sources */,
 				87B442382E098CE400ACEE26 /* UserPageGiftListView.swift in Sources */,
 				87B4423A2E098CE400ACEE26 /* LMUserTagV.swift in Sources */,
 				87B4423C2E098CE400ACEE26 /* VersionModel.swift in Sources */,
@@ -3194,7 +3191,6 @@
 				87607F4A2E12CC1F00AD10B9 /* LMHearVC.swift in Sources */,
 				87607F4B2E12CC1F00AD10B9 /* LMHearHeaderView.swift in Sources */,
 				87607F4C2E12CC1F00AD10B9 /* LMHearPageVC.swift in Sources */,
-				87B457BE2E103AE600ACEE26 /* LMZodiacResaultView.swift in Sources */,
 				87B442462E098CE400ACEE26 /* LMCityDataPickerVC.swift in Sources */,
 				87B442472E098CE400ACEE26 /* LMAuthPopVC.swift in Sources */,
 				87B4424A2E098CE400ACEE26 /* BlackLiskViewController.swift in Sources */,

@@ -127,7 +127,7 @@ extension LMMainView {
         self.topView.snp.remakeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalToSuperview().offset(kStatusBarHeight)
-            make.height.equalTo(68.0)
+            make.height.equalTo(74.0)
         }
         if viewModel.roomItem.roomType == .dispatch {
             self.seatView.snp.remakeConstraints { make in
@@ -138,8 +138,8 @@ extension LMMainView {
         } else {
             self.seatView.snp.remakeConstraints { make in
                 make.left.right.equalToSuperview()
-                make.top.equalTo(topView.snp.bottom).offset(16)
-                make.height.equalTo(220.0)
+                make.top.equalTo(topView.snp.bottom).offset(0)
+                make.height.equalTo(281)
             }
         }
         self.chatListView.snp.remakeConstraints { make in
@@ -161,7 +161,6 @@ extension LMMainView {
         self.resatSubView(viewModel)
         self.bottomView.setDataSoure(viewModel)
         self.topView.setDataSoure(viewModel.roomItem)
-        self.topView.set_Seats(viewModel.seats)
         self.seatView.set_TypeAndSeats(viewModel.roomItem.seatList,roomItem: viewModel.roomItem)
         self.set_BackGround(viewModel)
         if viewModel.roomItem.roomPkInfo != nil {
@@ -202,7 +201,7 @@ extension LMMainView {
             if  pkViewModel?.dataSoure.status == .normal || pkViewModel?.dataSoure.status == .close || pkViewModel == nil  {
                     UIView.animate(withDuration: 0.3) {
                         self.seatView.snp.updateConstraints { make in
-                            make.height.equalTo(220.0)
+                            make.height.equalTo(281.0)
                         }
                         self.chatListView.snp.remakeConstraints { make in
                             make.left.equalToSuperview().offset(16.0)
@@ -248,7 +247,7 @@ extension LMMainView {
             UIView.animate(withDuration: 0.3) {
                 self.seatView.snp.updateConstraints { make in
                     make.top.equalTo(self.topView.snp.bottom).offset(-kScaleWidth(0))
-                    make.height.equalTo(272.0)
+                    make.height.equalTo(281.0)
                 }
                 self.chatListView.snp.remakeConstraints { make in
                     make.left.equalToSuperview().offset(16.0)
@@ -328,17 +327,17 @@ extension LMMainView {
         self.topView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalToSuperview().offset(kStatusBarHeight)
-            make.height.equalTo(72.0)
+            make.height.equalTo(74)
         }
         self.seatView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(topView.snp.bottom).offset(4.0)
-            make.height.equalTo(220.0)
+            make.height.equalTo(281.0)
         }
         self.chatListView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(16.0)
             make.top.equalTo(self.seatView.snp.bottom).offset(16.0)
-            make.right.equalToSuperview().offset(-112.0)
+            make.right.equalToSuperview().offset(-kScaleWidth(96))
             make.bottom.equalToSuperview().offset(-kTabHeight)
         }
         self.bannerView.snp.makeConstraints { make in

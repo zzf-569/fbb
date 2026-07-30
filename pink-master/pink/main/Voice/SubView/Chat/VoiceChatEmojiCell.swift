@@ -70,9 +70,9 @@ class VoiceChatEmojiCell:LMRMChatListBaseCell {
 }
 private extension VoiceChatEmojiCell {
     func setViewSnp() {
-        contentView.addSubview(usheaderView)
-        contentView.addSubview(nicknamelb)
-        contentView.addSubview(bubbydmageView)
+        backView.addSubview(usheaderView)
+        backView.addSubview(nicknamelb)
+        backView.addSubview(bubbydmageView)
         bubbydmageView.addSubview(apngimv)
         usheaderView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(0)

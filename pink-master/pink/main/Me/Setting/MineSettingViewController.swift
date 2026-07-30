@@ -17,9 +17,9 @@ class MineSettingViewController: LMBaseVC {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         backgroundImage = nil
-        self.title = "设置中心"
+        view.backgroundColor(lmColorHex("#F5F6FA"))
+        self.title = "Setting"
         setViewSnp()
     }
     private func setViewSnp() {
@@ -30,41 +30,61 @@ class MineSettingViewController: LMBaseVC {
             make.width.equalTo(kScreenWidth)
             make.bottom.equalToSuperview()
         }
-        let accountSafeView = LMVerticalView(title: "账号资料")
+        
+        let managerCenter = UIView()
+        managerCenter.backgroundColor = .white
+        managerCenter.set_Border(radius: 16)
+        scrollView.addSubview(managerCenter)
+        managerCenter.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(kScaleWidth(16))
+            make.width.equalTo(kScreenWidth - kScaleWidth(32))
+            make.top.equalToSuperview().offset(kScaleWidth(12))
+            make.height.equalTo(kScaleWidth(56 * 3))
+        }
+        
+        let accountSafeView = LMVerticalView(title: "Account Management")
         accountSafeView.backgroundColor = .white
         accountSafeView.addGestureTap { [weak self] _ in
-            self?.navigationController?.pushViewController(MinePhoneViewController(), animated: true)
+            self?.navigationController?.pushViewController(LMAccountManagerViewController(), animated: true)
         }
-        let realView = LMVerticalView(title: "实名认证")
+        let realView = LMVerticalView(title: "Message Settings")
         realView.backgroundColor = .white
         realView.addGestureTap { [weak self] _ in
-            if UserShared.user?.realAuth == true {
-                self?.navigationController?.pushViewController(RealAuthSuccessViewController(), animated: true)
-            } else {
-                self?.navigationController?.pushViewController(RealAuthViewController(routetype: .popView), animated: true)
-            }
+            self?.navigationController?.pushViewController(LMMessageSettingsViewController(), animated: true)
         }
-        scrollView.addSubview(accountSafeView)
-        scrollView.addSubview(realView)
+        managerCenter.addSubview(accountSafeView)
+        managerCenter.addSubview(realView)
         accountSafeView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(kScaleWidth(12))
-            make.left.equalToSuperview().offset(kScaleWidth(16))
+            make.top.equalToSuperview().offset(kScaleWidth(0))
+            make.left.equalToSuperview().offset(kScaleWidth(0 ))
             make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(32), height: kScaleWidth(56)))
         }
         realView.snp.makeConstraints { make in
             make.top.equalTo(accountSafeView.snp.bottom)
-            make.left.equalToSuperview().offset(kScaleWidth(16))
+            make.left.equalToSuperview().offset(kScaleWidth(0))
             make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(32), height: kScaleWidth(56)))
         }
-        let noticenter = UIView()
-        noticenter.backgroundColor = .white
-        scrollView.addSubview(noticenter)
+        
+        let languageView = LMVerticalView(title: "Language Settings", type: .lbType, subTitle: AppLanguageManager.shared.currentLanguage.displayName)
+            .backgroundColor(.white)
+        self.languageView = languageView
+        languageView.addGestureTap { [weak self] _ in
+            self?.navigationController?.pushViewController(LanguageSettingViewController(), animated: true)
+        }
+        managerCenter.addSubview(languageView)
+        languageView.snp.makeConstraints { make in
+            make.top.equalTo(realView.snp.bottom)
+            make.left.equalToSuperview().offset(kScaleWidth(0))
+            make.size.equalTo(CGSize(width: kScreenWidth - kScaleWidth(32), height: kScaleWidth(56)))
+        }
+        
         let privacyView = UIView()
         privacyView.backgroundColor = .white
+        managerCenter.set_Border(radius: 16)
         scrollView.addSubview(privacyView)
-        let ruleView = LMVerticalView(title: "隐私权限", type: .nomal)
+        let ruleView = LMVerticalView(title: "Privacy", type: .nomal)
             .backgroundColor(.white)
-        let balckView = LMVerticalView(title: "黑名单", type: .nomal)
+        let balckView = LMVerticalView(title: "Blocklist", type: .nomal)
             .backgroundColor(.white)
         ruleView.addGestureTap { [weak self] _ in
             self?.navigationController?.pushViewController(LimitsViewController(), animated: true)
@@ -87,36 +107,37 @@ class MineSettingViewController: LMBaseVC {
         privacyView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(kScaleWidth(16))
             make.width.equalTo(kScreenWidth - kScaleWidth(32))
-            make.top.equalTo(realView.snp.bottom).offset(kScaleWidth(0))
+            make.top.equalTo(managerCenter.snp.bottom).offset(kScaleWidth(12))
         }
         let otherView = UIView()
         otherView.backgroundColor = .white
+        otherView.set_Border(radius: 16)
+
         scrollView.addSubview(otherView)
-        let diskView = LMVerticalView(title: "清理缓存", type: .nomal)
+        let diskView = LMVerticalView(title: "Clear cache", type: .nomal)
             .backgroundColor(.white)
         diskView.addGestureTap { [weak self] _ in
             self?.clear()
         }
-        let youngView = LMVerticalView(title: "青少年模式", type: .nomal)
-            .backgroundColor(.white)
-        youngView.addGestureTap { [weak self] _ in
-            self?.navigationController?.pushViewController(TeenagerModeViewController(), animated: true)
-        }
-        let languageView = LMVerticalView(title: "语言设置", type: .lbType, subTitle: AppLanguageManager.shared.currentLanguage.displayName)
-            .backgroundColor(.white)
-        self.languageView = languageView
-        languageView.addGestureTap { [weak self] _ in
-            self?.navigationController?.pushViewController(LanguageSettingViewController(), animated: true)
-        }
-        let aboutView = LMVerticalView(title: "关于我们", type: .nomal)
-            .backgroundColor(.white)
+//        let youngView = LMVerticalView(title: "青少年模式", type: .nomal)
+//            .backgroundColor(.white)
+//        youngView.addGestureTap { [weak self] _ in
+//            self?.navigationController?.pushViewController(TeenagerModeViewController(), animated: true)
+//        }
+//       
+//        let aboutView = LMVerticalView(title: "关于我们", type: .nomal)
+//            .backgroundColor(.white)
+//        aboutView.addGestureTap { [weak self] _ in
+//            self?.navigationController?.pushViewController(MineAboutUsViewController(), animated: true)
+//        }
+        otherView.addSubview(diskView)
+        let aboutView = LMVerticalView(title: "About Us", type: .nomal).backgroundColor(.white)
         aboutView.addGestureTap { [weak self] _ in
             self?.navigationController?.pushViewController(MineAboutUsViewController(), animated: true)
         }
-        otherView.addSubview(diskView)
-        otherView.addSubview(youngView)
-        otherView.addSubview(languageView)
         otherView.addSubview(aboutView)
+//        otherView.addSubview(youngView)
+//        otherView.addSubview(aboutView)
         for (index, view) in otherView.subviews.enumerated() {
             view.snp.makeConstraints { make in
                 make.left.right.equalToSuperview()
@@ -130,16 +151,17 @@ class MineSettingViewController: LMBaseVC {
         otherView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(kScaleWidth(16))
             make.width.equalTo(kScreenWidth - kScaleWidth(32))
-            make.top.equalTo(privacyView.snp.bottom).offset(kScaleWidth(0))
+            make.top.equalTo(privacyView.snp.bottom).offset(kScaleWidth(12))
         }
-        let logOutbtn = LMVerticalView(title: "退出登录", type: .nomal)
+        let logOutbtn = LMVerticalView(title: "logOut", type: .nomal)
             .backgroundColor(.clear)
         logOutbtn.titleLab.textColor = lmColorHex("#F5455CFF")
+        logOutbtn.set_Border(radius: 16)
         scrollView.addSubview(logOutbtn)
         logOutbtn.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(kScaleWidth(16))
             make.width.equalTo(kScreenWidth - kScaleWidth(32))
-            make.top.equalTo(otherView.snp.bottom).offset(kScaleWidth(0))
+            make.top.equalTo(otherView.snp.bottom).offset(kScaleWidth(12))
             make.height.equalTo(kScaleWidth(56))
             make.bottom.equalToSuperview()
         }
@@ -156,7 +178,7 @@ class MineSettingViewController: LMBaseVC {
         clearWebCache()
         clearImageCache()
         clearAnimationCache()
-        HUD.show("清理成功")
+        HUD.show("success")
     }
     func clearWebCache() {
         let types = [WKWebsiteDataTypeCookies, WKWebsiteDataTypeLocalStorage, WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache, WKWebsiteDataTypeOfflineWebApplicationCache]

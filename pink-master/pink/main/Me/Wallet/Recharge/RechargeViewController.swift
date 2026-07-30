@@ -60,11 +60,13 @@ class RechargeViewController: LMBaseVC {
     }()
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(target: self, cellTypes: [RechargeCollectionViewCell.self])
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
         return collectionView
     }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,82 +77,109 @@ class RechargeViewController: LMBaseVC {
         updateBalance()
     }
     private func setViewSnp() {
-        title = "充值"
-        view.backgroundColor = lmColorHex("#FFFFFF")
-        view.addSubview(topView)
-        topView.addSubview(coinImage)
-        topView.addSubview(cointips)
-        topView.addSubview(coinlb)
-        view.addSubview(contentView)
-        contentView.addSubview(collectionView)
-        topView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(kScaleWidth(20))
-            make.top.equalToSuperview().offset(kNavigationHeight + kScaleWidth(12))
-            make.height.equalTo(kScaleWidth(48))
-        }
-        coinImage.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(24))
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(kScaleWidth(24))
-        }
-        cointips.snp.makeConstraints { make in
-            make.left.equalTo(coinImage.snp.right).offset(kScaleWidth(8))
-            make.centerY.equalToSuperview()
-            make.height.equalTo(kScaleWidth(40))
-        }
-        coinlb.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-kScaleWidth(16))
-            make.centerY.equalToSuperview()
-            make.height.equalTo(kScaleWidth(40))
-        }
-        contentView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalToSuperview().offset(kScaleWidth(76) + kNavigationHeight)
-        }
-        contentView.layoutIfNeeded()
-        collectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalToSuperview().offset(kScaleWidth(12))
-            make.bottom.equalToSuperview().offset(-kScaleWidth(360))
-        }
-        contentView.addSubview(rechargebtn)
-        contentView.addSubview(custonlb)
-        let agreementView = UIView()
-        contentView.addSubview(agreementView)
-        agreementView.addSubview(agreementBoxbtn)
-        agreementView.addSubview(agreementlb)
-        rechargebtn.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-(kScaleWidth(48) + kTabBarSafeHeight))
-            make.size.equalTo(CGSize(width: kScaleWidth(342), height: kScaleWidth(56)))
-        }
-        agreementBoxbtn.snp.makeConstraints { make in
-            make.left.equalToSuperview()
-            make.top.equalToSuperview().offset(kScaleWidth(4))
-            make.size.equalTo(CGSize(width: kScaleWidth(16), height: kScaleWidth(16)))
-        }
-        agreementlb.snp.makeConstraints { make in
-            make.left.equalTo(agreementBoxbtn.snp.right).offset(kScaleWidth(6))
-            make.top.right.equalToSuperview()
-            make.height.equalTo(kScaleWidth(24))
-        }
-        agreementView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-(kScaleWidth(130) + kTabBarSafeHeight))
-            make.height.equalTo(kScaleWidth(24))
-        }
-        let tipslb = UILabel(lmfont: lmFontASHTB(18), textColor: .textDefaulColor)
-        tipslb.lmtext("余额充值说明：")
-        contentView.addSubview(tipslb)
-        tipslb.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(kScaleWidth(20))
-            make.bottom.equalTo(custonlb.snp.top).offset(-kScaleWidth(8))
-            make.height.equalTo(kScaleWidth(24))
-        }
-        custonlb.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(kScaleWidth(20))
-            make.bottom.equalTo(rechargebtn.snp.top).offset(-kScaleWidth(160))
-        }
+        view.backgroundColor = lmColorHex("#F5F6FA")
+
+        let nav = UIView()
+        view.addSubview(nav)
+        nav.snp.makeConstraints { $0.top.left.right.equalToSuperview(); $0.height.equalTo(kNavigationHeight) }
+        let back = UIButton(type: .custom)
+        back.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        back.tintColor = lmColorHex("#202620")
+        back.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        nav.addSubview(back)
+        back.snp.makeConstraints { $0.left.equalToSuperview().offset(12); $0.bottom.equalToSuperview().offset(-4); $0.size.equalTo(40) }
+        let navTitle = UILabel(lmfont: lmFontM(22), textColor: lmColorHex("#171C18"))
+        navTitle.text = "Recharge"
+        navTitle.textAlignment = .center
+        nav.addSubview(navTitle)
+        navTitle.snp.makeConstraints { $0.centerX.equalToSuperview(); $0.centerY.equalTo(back) }
+        let restore = UIButton(type: .custom)
+        restore.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
+        restore.tintColor = lmColorHex("#202620")
+        restore.addTarget(self, action: #selector(restoreAction), for: .touchUpInside)
+        nav.addSubview(restore)
+        restore.snp.makeConstraints { $0.right.equalToSuperview().offset(-12); $0.centerY.equalTo(back); $0.size.equalTo(32) }
+
+        let scroll = UIScrollView()
+        scroll.showsVerticalScrollIndicator = false
+        view.addSubview(scroll)
+        scroll.snp.makeConstraints { $0.top.equalTo(nav.snp.bottom); $0.left.right.bottom.equalToSuperview() }
+        let page = UIView()
+        scroll.addSubview(page)
+        page.snp.makeConstraints { $0.edges.equalToSuperview(); $0.width.equalToSuperview(); $0.height.greaterThanOrEqualTo(kScreenHeight - kNavigationHeight) }
+
+        let balanceCard = UIView()
+        balanceCard.backgroundColor = lmColorHex("#142018")
+        balanceCard.layer.cornerRadius = 14
+        balanceCard.clipsToBounds = true
+        page.addSubview(balanceCard)
+        balanceCard.snp.makeConstraints { $0.top.equalToSuperview().offset(14); $0.left.right.equalToSuperview().inset(20); $0.height.equalTo(120) }
+
+        cointips.text = "Coins"
+        cointips.textColor = .white
+        balanceCard.addSubview(cointips)
+        cointips.snp.makeConstraints { $0.left.equalToSuperview().offset(12); $0.top.equalToSuperview().offset(8) }
+        let largeCoin = UIImageView(image: UIImage(named: "cm_coin"))
+        largeCoin.contentMode = .scaleAspectFit
+        balanceCard.addSubview(largeCoin)
+        largeCoin.snp.makeConstraints { $0.right.equalToSuperview().offset(-8); $0.top.equalToSuperview().offset(-10); $0.size.equalTo(72) }
+
+        let amountView = UIView()
+        amountView.backgroundColor = .white
+        amountView.layer.cornerRadius = 12
+        balanceCard.addSubview(amountView)
+        amountView.snp.makeConstraints { $0.left.right.bottom.equalToSuperview().inset(4); $0.height.equalTo(78) }
+        let faintCoin = UIImageView(image: UIImage(named: "cm_coin"))
+        faintCoin.alpha = 0.15
+        amountView.addSubview(faintCoin)
+        faintCoin.snp.makeConstraints { $0.left.equalToSuperview().offset(10); $0.centerY.equalToSuperview(); $0.size.equalTo(62) }
+        coinlb.textColor = lmColorHex("#202620")
+        coinlb.font = lmFontM(32)
+        coinlb.textAlignment = .center
+        amountView.addSubview(coinlb)
+        coinlb.snp.makeConstraints { $0.center.equalToSuperview(); $0.left.equalToSuperview().offset(52); $0.right.equalToSuperview().offset(-52) }
+        let details = UIButton(type: .custom)
+        details.setTitle("Details", for: .normal)
+        details.setTitleColor(lmColorHex("#B9FF63"), for: .normal)
+        details.titleLabel?.font = lmFontR(11)
+        details.backgroundColor = lmColorHex("#142018")
+        details.layer.cornerRadius = 5
+        details.addTarget(self, action: #selector(detailsAction), for: .touchUpInside)
+        amountView.addSubview(details)
+        details.snp.makeConstraints { $0.right.equalToSuperview().offset(-10); $0.centerY.equalToSuperview(); $0.width.equalTo(52); $0.height.equalTo(28) }
+
+        let sectionTitle = UILabel(lmfont: lmFontM(16), textColor: lmColorHex("#202620"))
+        sectionTitle.text = "Recharge Coins"
+        page.addSubview(sectionTitle)
+        sectionTitle.snp.makeConstraints { $0.left.equalToSuperview().offset(20); $0.top.equalTo(balanceCard.snp.bottom).offset(18) }
+        page.addSubview(collectionView)
+        collectionView.snp.makeConstraints { $0.left.right.equalToSuperview(); $0.top.equalTo(sectionTitle.snp.bottom).offset(6); $0.height.equalTo(154) }
+
+        let supportLine = UIView()
+        supportLine.backgroundColor = lmColorHex("#D7DAD7")
+        page.addSubview(supportLine)
+        supportLine.snp.makeConstraints { $0.left.right.equalToSuperview().inset(20); $0.bottom.equalToSuperview().offset(-145); $0.height.equalTo(1) }
+        let supportIcon = UIImageView(image: UIImage(named: "support"))
+        supportIcon.contentMode = .scaleAspectFit
+        page.addSubview(supportIcon)
+        supportIcon.snp.makeConstraints { $0.left.equalToSuperview().offset(32); $0.top.equalTo(supportLine.snp.bottom).offset(14); $0.size.equalTo(30) }
+        let supportTitle = UILabel(lmfont: lmFontM(14), textColor: lmColorHex("#202620"))
+        supportTitle.text = "Customer Support"
+        page.addSubview(supportTitle)
+        supportTitle.snp.makeConstraints { $0.left.equalTo(supportIcon.snp.right).offset(8); $0.centerY.equalTo(supportIcon) }
+        let contact = UIButton(type: .custom)
+        contact.setTitle("Contact", for: .normal)
+        contact.setTitleColor(lmColorHex("#202620"), for: .normal)
+        contact.titleLabel?.font = lmFontR(10)
+        contact.layer.cornerRadius = 5
+        contact.layer.borderWidth = 1
+        contact.layer.borderColor = lmColorHex("#B9BCB9").cgColor
+        contact.addTarget(self, action: #selector(contactAction), for: .touchUpInside)
+        page.addSubview(contact)
+        contact.snp.makeConstraints { $0.right.equalToSuperview().offset(-32); $0.centerY.equalTo(supportIcon); $0.width.equalTo(64); $0.height.equalTo(28) }
+
+        page.addSubview(agreementlb)
+        agreementlb.snp.makeConstraints { $0.left.right.equalToSuperview().inset(18); $0.top.equalTo(supportIcon.snp.bottom).offset(20); $0.height.equalTo(18) }
     }
     func setDataSoure() {
         set_NetWork.payProductList().lmrequest { [weak self] responseModel in
@@ -161,10 +190,10 @@ class RechargeViewController: LMBaseVC {
         }
     }
     func set_upAgreement() {
-        let text = "已同意并阅读"
-        let textAction1 = "《充值协议》"
-        let attributedString = NSMutableAttributedString(string: text, attributes: [.font: lmFontR(14), .foregroundColor: UIColor.textDefaulColor])
-        attributedString.append(NSAttributedString(string: textAction1, attributes: [.font: lmFontR(14), .foregroundColor: UIColor.textLink]))
+        let text = "By recharging you agree to the  "
+        let textAction1 = "Recharge Agreement"
+        let attributedString = NSMutableAttributedString(string: text, attributes: [.font: lmFontR(12), .foregroundColor: lmColorHex("#A5AAA6")])
+        attributedString.append(NSAttributedString(string: textAction1, attributes: [.font: lmFontR(12), .foregroundColor: lmColorHex("#747A75")]))
         self.agreementlb.attributedText = attributedString
         self.agreementlb.addGestureTap { [weak self] tap in
             (tap as? UITapGestureRecognizer)?.didTapLabelAttributedText([textAction1]) { _ in
@@ -193,6 +222,24 @@ class RechargeViewController: LMBaseVC {
     }
     @objc func boxbtnAction(_ btn: UIButton) {
         btn.isSelected(!btn.isSelected)
+    }
+
+    @objc private func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func restoreAction() {
+        setDataSoure()
+        updateBalance()
+    }
+
+    @objc private func detailsAction() {
+        navigationController?.pushViewController(WalletRecordPageViewController(type: 0), animated: true)
+    }
+
+    @objc private func contactAction() {
+        let controller = CustomChatController(kImUserId(converID: AppConfig.IMConfig.customUserId), isRoom: false)
+        navigationController?.pushViewController(controller, animated: true)
     }
     @objc func appleRechargeClick() {
         createPayOrder(channelId: 0, type: .apple)
@@ -267,5 +314,6 @@ extension RechargeViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         seydtem = dataList[indexPath.row]
         self.collectionView.reloadData()
+        appleRechargeClick()
     }
 }

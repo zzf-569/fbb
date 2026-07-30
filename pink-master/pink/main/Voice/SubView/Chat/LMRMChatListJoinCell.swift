@@ -42,8 +42,8 @@ class LMRMChatListJoinCell:LMRMChatListBaseCell {
 }
 private extension LMRMChatListJoinCell {
     func setViewSnp() {
-        self.contentView.addSubview(contentlb)
-        self.contentView.addSubview(welcomeBtn)
+        backView.addSubview(contentlb)
+        backView.addSubview(welcomeBtn)
         contentlb.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(0)
             make.bottom.equalToSuperview().offset(-20)

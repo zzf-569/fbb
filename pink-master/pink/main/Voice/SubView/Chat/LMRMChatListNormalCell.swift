@@ -61,11 +61,11 @@ class LMRMChatListNormalCell:LMRMChatListBaseCell {
 }
 private extension LMRMChatListNormalCell {
     func setViewSnp() {
-        contentView.addSubview(usheaderView)
-        contentView.addSubview(headwearimv)
-        contentView.addSubview(nicknamelb)
-        contentView.addSubview(tagView)
-        contentView.addSubview(contentlb)
+        backView.addSubview(usheaderView)
+        backView.addSubview(headwearimv)
+        backView.addSubview(nicknamelb)
+        backView.addSubview(tagView)
+        backView.addSubview(contentlb)
         usheaderView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(0)
             make.top.equalToSuperview().offset(0)
